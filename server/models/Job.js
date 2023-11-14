@@ -13,6 +13,9 @@ const jobSchema = new Schema({
     description: {
       type: String
     },
+    jobLink: {
+        type: String
+    },
     appliedOn: {
       type: Date,
       default: Date.now,
