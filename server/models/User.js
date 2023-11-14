@@ -21,8 +21,8 @@ const userSchema = new Schema({
   },
   jobs: [
     {
-      type: String,
-      trim: true,
+      type: Schema.Types.ObjectId,
+      ref: 'Job'
     },
   ],
 });
