@@ -5,8 +5,7 @@
         "description": "A web designer for an HVAC company.",
         "salary": "$55,000 - $100,000",
         "jobLink": "www.indeed.com",
-        "appliedON": "11/09/2023",
-        "applicant": "Brian"
+        "appliedON": "11/09/2023"
     },
     {
         "jobTitle": "Junior Web Development Associate",
@@ -14,8 +13,7 @@
         "description": "Day to day operations of team website and mobile apps.",
         "salary": "$25/hour",
         "jobLink": "www.ziprecruiter.com",
-        "appliedON": "10/28/2023",
-        "applicant": "Nathan"
+        "appliedON": "10/28/2023"
     },
     {
         "jobTitle": "Web Designer",
@@ -23,8 +21,7 @@
         "description": "Create and design best in class user experience website.",
         "salary": "$45/hour",
         "jobLink": "www.glassdoor.com",
-        "appliedON": "09/12/2023",
-        "applicant": "Adam"
+        "appliedON": "09/12/2023"
     },
     {
         "jobTitle": "Junior Web Designer",
@@ -32,7 +29,6 @@
         "description": "Music division website handling.",
         "salary": "$65,000 - $70,000",
         "jobLink": "www.monster.com",
-        "appliedON": "11/01/2023",
-        "applicant": "John"
+        "appliedON": "11/01/2023"
     }
 ]

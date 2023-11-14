@@ -24,9 +24,6 @@ const jobSchema = new Schema({
     default: Date.now,
     get: (date) => formate_date(date)
   },
-  applicant: {
-    type: String
-  },
   interviewOffered: {
     type: Boolean
   },
@@ -35,6 +32,6 @@ const jobSchema = new Schema({
   }
 });
 
-const Job = model('Job', userSchema);
+const Job = model('Job', jobSchema);
 
 module.exports = Job;
