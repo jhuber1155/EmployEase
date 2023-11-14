@@ -24,6 +24,10 @@ const jobSchema = new Schema({
     default: Date.now,
     get: (date) => formate_date(date)
   },
+  applicant: {
+      type: Schema.Types.ObjectId,
+      ref: 'user'
+  },
   interviewOffered: {
     type: Boolean
   },

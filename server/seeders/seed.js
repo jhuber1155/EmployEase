@@ -10,12 +10,13 @@ db.once('open', async () => {
 
     await cleanDB('User', 'users');
 
-    await User.create(userSeeds);
+    const users = await User.create(userSeeds);
+    console.log(users)
 
     for (let i = 0; i < jobSeeds.length; i++) {
-      const { _id, applicant } = await Job.create(jobSeeds[i]);
+      const { _id } = await Job.create(jobSeeds[i]);
       const user = await User.findOneAndUpdate(
-        { username: applicant },
+        { _id: users[Math.floor(Math.random() * users.length)]._id },
         {
           $addToSet: {
             jobs: _id,
