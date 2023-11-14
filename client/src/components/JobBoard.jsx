@@ -12,30 +12,22 @@ const JobBoard = ({jobs}) => {
   const accepted = [];
 
   for (let i =0; i<jobs.length; i++) {
+    const jobData = {
+      id: jobs[i].jobId,
+      title: jobs[i].jobTitle,
+      description: `Salary: ${jobs[i].salary}\nDescription: ${jobs[i].description}`,
+      label: jobs[i].companyName
+    }
+    
     switch (jobs[i].status) {
       case 'Open':
-        open.push({
-          id: jobs[i].jobId,
-          title: jobs[i].jobTitle,
-          description: jobs[i].description,
-          label: jobs[i].companyName
-        });
+        open.push(jobData);
         break;
       case 'Rejected':
-        rejected.push({
-          id: jobs[i].jobId,
-          title: jobs[i].jobTitle,
-          description: jobs[i].description,
-          label: jobs[i].companyName
-        });
+        rejected.push(jobData);
         break;
       default: 
-        accepted.push({
-          id: jobs[i].jobId,
-          title: jobs[i].jobTitle,
-          description: jobs[i].description,
-          label: jobs[i].companyName
-        });
+        accepted.push(jobData);
     }
   };
 
