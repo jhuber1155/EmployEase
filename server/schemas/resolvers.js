@@ -12,6 +12,22 @@ const resolvers = {
         console.error(error);
       }
     },
+    getJobs: async (parent, args) => {
+      try {
+        const jobs = await Job.find({})
+        return jobs
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    getJob: async (parent, { jobId }) => {
+      try {
+        const job = await Job.findById(jobId)
+        return job
+      } catch (error) {
+        console.error(error);
+      }
+    },
     getUsers: async (_, args, context) => {
       try {
         const users = await User.find({}).populate('jobs');
@@ -23,6 +39,11 @@ const resolvers = {
     getUser: async (_, { userId }, context) => {
       try {
         const user = await User.findById(userId).populate('jobs');
+
+        if (!userId) {
+          throw new AuthenticationError('User not found!');
+        }
+
         return user;
       } catch (error) {
         console.error(error);
@@ -53,8 +74,50 @@ const resolvers = {
 
       return { token, user };
     },
-  }
+    addJob: async (parent, args) => {
+      try {
+        const job = await Job.create(args)
+        return job
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    updateJob: async (parent, args) => {
+      try {
+        const job = await Job.findOneAndUpdate(
+          { _id: args.jobId },
+          {
+            salary: args.salary,
+            interviewOffered: args.interviewOffered,
+            status: args.status
+          }
+        );
 
+        if (!job) {
+          throw new AuthenticationError('Job not found!');
+        }
+
+        return job
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    deletJob: async (parent, { jobId }) => {
+      try {
+        const job = await Job.findOneAndDelete({
+          _id: jobId
+        });
+
+        if (!job) {
+          throw new AuthenticationError('Job not found!');
+        }
+
+        return job
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }
 };
 
 module.exports = resolvers;

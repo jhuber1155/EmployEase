@@ -31,7 +31,7 @@ const typeDefs = `
 
     deleteJob(jobId: ID!): Job
 
-    updateJob(jobId: ID!, jobTitle: String!, salary: String!, companyName: String, description: String, jobLink: String, appliedOn: String, interviewOffered: Boolean, status: String): Job
+    updateJob(jobId: ID!, salary: String!, interviewOffered: Boolean, status: String): Job
   }
 
   type Query {
