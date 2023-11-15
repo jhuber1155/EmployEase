@@ -1,6 +1,8 @@
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-// import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Login from './pages/Login.jsx'
+import Signup from './pages/Signup.jsx'
 
 import App from './App.jsx'
 import './index.css'
@@ -13,17 +15,22 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />
+        element: <Login/>
       }, {
         path: '/login',
         element: <Login />
-      }, {
-        path: '/addJob',
-        element: <AddJob />
-      }, {
-        path: '/jobs/:jobid',
-        element: <Jobs />
       }
+      , {
+        path: '/signup',
+        element: <Signup/>
+      }
+      // }, {
+      //   path: '/addJob',
+      //   element: <AddJob />
+      // }, {
+      //   path: '/jobs/:jobid',
+      //   element: <Jobs />
+      // }
     ]
   }
 ])
