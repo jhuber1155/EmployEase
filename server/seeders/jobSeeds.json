@@ -7,7 +7,7 @@
         "jobLink": "www.indeed.com",
         "appliedOn": "11/09/2023",
         "location": "Remote",
-        "fulltime": true,
+        "fullTime": true,
         "interviewOffered": true,
         "status": "Accepted" 
     },
@@ -19,7 +19,7 @@
         "jobLink": "www.ziprecruiter.com",
         "appliedOn": "10/28/2023",
         "location": "Los Angeles, CA",
-        "fulltime": false,
+        "fullTime": false,
         "interviewOffered": false,
         "status": "Open"
     },
@@ -31,7 +31,7 @@
         "jobLink": "www.glassdoor.com",
         "appliedOn": "09/12/2023",
         "location": "Remote",
-        "fulltime": true,
+        "fullTime": true,
         "interviewOffered": true,
         "status": "Open" 
     },
@@ -43,7 +43,7 @@
         "jobLink": "www.monster.com",
         "appliedOn": "11/01/2023",
         "location": "New York, NY",
-        "fulltime": true,
+        "fullTime": true,
         "interviewOffered": false,
         "status": "Rejected" 
     },
@@ -55,7 +55,7 @@
         "jobLink": "https://www.linkedin.com/jobs/view/junior-frontend-engineer-javascript-html-css-at-fitness-matrix-inc-3763676883?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
         "appliedOn": "11/02/2023",
         "location": "Remote",
-        "fulltime": true,
+        "fullTime": true,
         "interviewOffered": true,
         "status": "Accepted" 
     },
@@ -67,7 +67,7 @@
         "jobLink": "https://unique-jobs.us/joblistings/virta-health/california/backend-web-developer-6541139e709a3204c521bcdb?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
         "appliedOn": "11/14/2023",
         "location": "Calabassas, CA",
-        "fulltime": true,
+        "fullTime": true,
         "interviewOffered": false,
         "status": "Open" 
     }

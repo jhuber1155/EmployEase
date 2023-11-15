@@ -40,6 +40,9 @@ const typeDefs = `
     getUser(userId: ID!): User
     getJobs: [Job]
     getJob(jobId: ID!): Job
+    me:User
   }`
+
+
 
 module.exports = typeDefs;
