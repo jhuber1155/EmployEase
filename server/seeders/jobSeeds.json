@@ -5,7 +5,11 @@
         "description": "A web designer for an HVAC company.",
         "salary": "$55,000 - $100,000",
         "jobLink": "www.indeed.com",
-        "appliedON": "11/09/2023"
+        "appliedOn": "11/09/2023",
+        "location": "Remote",
+        "fulltime": true,
+        "interviewOffered": true,
+        "status": "Accepted" 
     },
     {
         "jobTitle": "Junior Web Development Associate",
@@ -13,7 +17,11 @@
         "description": "Day to day operations of team website and mobile apps.",
         "salary": "$25/hour",
         "jobLink": "www.ziprecruiter.com",
-        "appliedON": "10/28/2023"
+        "appliedOn": "10/28/2023",
+        "location": "Los Angeles, CA",
+        "fulltime": false,
+        "interviewOffered": false,
+        "status": "Open"
     },
     {
         "jobTitle": "Web Designer",
@@ -21,7 +29,11 @@
         "description": "Create and design best in class user experience website.",
         "salary": "$45/hour",
         "jobLink": "www.glassdoor.com",
-        "appliedON": "09/12/2023"
+        "appliedOn": "09/12/2023",
+        "location": "Remote",
+        "fulltime": true,
+        "interviewOffered": true,
+        "status": "Open" 
     },
     {
         "jobTitle": "Junior Web Designer",
@@ -29,6 +41,34 @@
         "description": "Music division website handling.",
         "salary": "$65,000 - $70,000",
         "jobLink": "www.monster.com",
-        "appliedON": "11/01/2023"
+        "appliedOn": "11/01/2023",
+        "location": "New York, NY",
+        "fulltime": true,
+        "interviewOffered": false,
+        "status": "Rejected" 
+    },
+    {
+        "jobTitle": "Junior Frontend Engineer",
+        "companyName": "Fitness Matrix Inc",
+        "description": "Building customer-facing applications",
+        "salary": "$67,000",
+        "jobLink": "https://www.linkedin.com/jobs/view/junior-frontend-engineer-javascript-html-css-at-fitness-matrix-inc-3763676883?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+        "appliedOn": "11/02/2023",
+        "location": "Remote",
+        "fulltime": true,
+        "interviewOffered": true,
+        "status": "Accepted" 
+    },
+    {
+        "jobTitle": "Backend Web Developer",
+        "companyName": "Virta Health",
+        "description": "Code, test and ship new product features of the enrollment product maintaining high quality coding standards",
+        "salary": "$70,000 - $90,000",
+        "jobLink": "https://unique-jobs.us/joblistings/virta-health/california/backend-web-developer-6541139e709a3204c521bcdb?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+        "appliedOn": "11/14/2023",
+        "location": "Calabassas, CA",
+        "fulltime": true,
+        "interviewOffered": false,
+        "status": "Open" 
     }
 ]

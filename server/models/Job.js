@@ -1,9 +1,6 @@
 const { Schema, model } = require('mongoose');
 
 const jobSchema = new Schema({
-  jobId: {
-    type: Number
-  },
   jobTitle: {
     type: String
   },
@@ -19,14 +16,16 @@ const jobSchema = new Schema({
   jobLink: {
     type: String
   },
+  location: {
+    type: String
+  },
+  fullTime: {
+    type: Boolean
+  }, 
   appliedOn: {
     type: Date,
     default: Date.now,
     get: (date) => formate_date(date)
-  },
-  applicant: {
-      type: Schema.Types.ObjectId,
-      ref: 'user'
   },
   interviewOffered: {
     type: Boolean
