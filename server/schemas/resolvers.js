@@ -48,6 +48,12 @@ const resolvers = {
       } catch (error) {
         console.error(error);
       }
+    },
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOne({ _id: context.user._id }).populate('jobs');
+      }
+      throw AuthenticationError('User not found!');
     }
 
   },

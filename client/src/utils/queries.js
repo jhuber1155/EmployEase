@@ -53,3 +53,19 @@ query GetUsers($userId: ID!) {
     }
   }
   `
+
+export const QUERY_ME = gql`
+query me {
+    me {
+      id
+      username
+      email
+      password
+      jobs {
+        id
+        jobTitle
+        companyName
+      }
+    }
+  }
+`
