@@ -2,7 +2,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_SINGLE_JOB } from '../../utils/queries';
 
 const Job = () => {
-    const { jobId} = useParams();
+    const { jobId } = useParams();
 
     const { loading, data } = useQuery(QUERY_SINGLE_JOB, {
         variables: { jobId: jobId },
