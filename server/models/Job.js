@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const dateFormat = require('../utils/dateformat')
 
 const jobSchema = new Schema({
   jobTitle: {
@@ -25,7 +26,7 @@ const jobSchema = new Schema({
   appliedOn: {
     type: Date,
     default: Date.now,
-    get: (date) => formate_date(date)
+    get: (date) => dateFormat(date)
   },
   interviewOffered: {
     type: Boolean
