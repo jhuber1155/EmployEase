@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Login from './pages/Login.jsx'
-
+import Signup from './pages/Signup.jsx'
 
 import App from './App.jsx'
 import './index.css'
@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Login/>
+        element: <Signup/>
       }, {
         path: '/login',
         element: <Login />
