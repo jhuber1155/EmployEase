@@ -1,9 +1,9 @@
 import { useQuery } from '@apollo/client';
-import { QUERY_JOBS } from '../../utils/queries';
+import { QUERY_ME } from '../utils/queries';
 import JobBoard from '../components/JobBoard.jsx';
 
 const Home = () => {
-  const {loading, data } = useQuery(QUERY_JOBS);
+  const {loading, data } = useQuery(QUERY_ME);
   const jobs = data?.jobs || [];
 
   return (
@@ -11,7 +11,7 @@ const Home = () => {
       {loading ? (
             <div>Loading...</div>
           ) : (
-            <JobBoard  jobs={jobs} />
+             <JobBoard  jobs={jobs} />
           )}
     </main>
   )
