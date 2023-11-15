@@ -1,9 +1,6 @@
 const { Schema, model } = require('mongoose');
 
 const jobSchema = new Schema({
-  jobId: {
-    type: Number
-  },
   jobTitle: {
     type: String
   },

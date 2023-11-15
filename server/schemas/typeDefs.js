@@ -1,6 +1,5 @@
 const typeDefs = `
   type Job {
-    jobId: Int
     jobTitle: String
     salary: String
     companyName: String
@@ -27,12 +26,20 @@ const typeDefs = `
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+
+    addJob(jobTitle: String!, salary: String!, companyName: String, description: String, jobLink: String, appliedOn: String, interviewOffered: Boolean, status: String): Job
+
+    deleteJob(jobId: ID!): Job
+
+    updateJob(jobId: ID!, jobTitle: String!, salary: String!, companyName: String, description: String, jobLink: String, appliedOn: String, interviewOffered: Boolean, status: String): Job
   }
 
   type Query {
     getUserJobs(userId: ID!): [Job]
     getUsers: [User]
     getUser(userId: ID!): User
+    getJobs: [Job]
+    getJob(jobId: ID!): Job
   }`
 
 module.exports = typeDefs;
