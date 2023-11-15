@@ -29,9 +29,9 @@ const typeDefs = `
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addJob(userId: ID!, jobTitle: String!, salary: String!, location: String, fullTime: Booolean, companyName: String, description: String, jobLink: String, appliedOn: String, interviewOffered: Boolean, status: String): Job
+    addJob(userId: ID!, jobTitle: String!, salary: String!, location: String, fullTime: Boolean, companyName: String, description: String, jobLink: String, appliedOn: String, interviewOffered: Boolean, status: String): Job
     deleteJob(jobId: ID!): Job
-    updateJob(jobId: ID!, salary: String!, location: String, fullTime: Booolean, interviewOffered: Boolean, status: String): Job
+    updateJob(jobId: ID!, salary: String!, location: String, fullTime: Boolean, interviewOffered: Boolean, status: String): Job
   }
 
   type Query {
