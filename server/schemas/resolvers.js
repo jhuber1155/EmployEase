@@ -77,6 +77,17 @@ const resolvers = {
     addJob: async (parent, args) => {
       try {
         const job = await Job.create(args)
+
+        const user = await User.findOneAndUpdate(
+          { _id: args.userId },
+          {
+            $addToSet: {
+              jobs: job._id
+            }
+          },
+          { new: true }
+        );
+
         return job
       } catch (error) {
         console.error(error);
@@ -90,7 +101,8 @@ const resolvers = {
             salary: args.salary,
             interviewOffered: args.interviewOffered,
             status: args.status
-          }
+          },
+          { new: true }
         );
 
         if (!job) {
@@ -102,7 +114,7 @@ const resolvers = {
         console.error(error);
       }
     },
-    deletJob: async (parent, { jobId }) => {
+    deleteJob: async (parent, { jobId }) => {
       try {
         const job = await Job.findOneAndDelete({
           _id: jobId

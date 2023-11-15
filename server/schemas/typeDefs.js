@@ -1,5 +1,6 @@
 const typeDefs = `
   type Job {
+    id: ID!
     jobTitle: String
     salary: String
     companyName: String
@@ -26,11 +27,8 @@ const typeDefs = `
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-
-    addJob(jobTitle: String!, salary: String!, companyName: String, description: String, jobLink: String, appliedOn: String, interviewOffered: Boolean, status: String): Job
-
+    addJob(userId: ID!, jobTitle: String!, salary: String!, companyName: String, description: String, jobLink: String, appliedOn: String, interviewOffered: Boolean, status: String): Job
     deleteJob(jobId: ID!): Job
-
     updateJob(jobId: ID!, salary: String!, interviewOffered: Boolean, status: String): Job
   }
 
