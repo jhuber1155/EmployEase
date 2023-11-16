@@ -4,7 +4,10 @@ import JobBoard from '../components/JobBoard.jsx';
 
 const Home = () => {
   const {loading, data } = useQuery(QUERY_ME);
+  // Even if data has jobs in jobs array, jobs is returning as empty array - needs fix
   // const jobs = data?.jobs || [];
+
+  // hardcoded data until empty data issue is fixed
   const jobs = [
     {
       "id": "65558b47f2f7c75f5253a0d1",

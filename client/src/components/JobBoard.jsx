@@ -66,37 +66,37 @@ const JobBoard = ({jobs}) => {
       {
         id: 'lane1',
         title: 'Open Applications',
-        label: `${open.length}/${jobs.length}`,
-        cards: open
+        label: `${open.length}/${jobs.length}`, //label is jobs in lane/total jobs
+        cards: open,
+        style: {
+          boxShadow: '2px 2px 4px 0px rgba(0,0,0,0.75)',
+          color: '#fff',
+        },
       },
       {
         id: 'lane2',
         title: 'Rejected',
-        label: `${rejected.length}/${jobs.length}`,
+        label: `${rejected.length}/${jobs.length}`, //label is jobs in lane/total jobs
         cards: rejected,
         style: {
           backgroundColor: '#EB5A46',
           boxShadow: '2px 2px 4px 0px rgba(0,0,0,0.75)',
           color: '#fff',
-          width: 280
         },
       },
       {
         id: 'lane3',
         title: 'Accepted',
-        label: `${accepted.length}/${jobs.length}`,
+        label: `${accepted.length}/${jobs.length}`, //label is jobs in lane/total jobs
         cards: accepted,
         style: {
           backgroundColor: '#61BD4F',
           boxShadow: '2px 2px 4px 0px rgba(0,0,0,0.75)',
           color: '#fff',
-          width: 280
         },
       }
     ]
   }
-
-  console.log(data);
 
   return (
     <Board data={data} />
