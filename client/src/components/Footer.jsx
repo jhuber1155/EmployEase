@@ -9,7 +9,7 @@ const Footer = () => {
           &copy; {new Date().getFullYear()} EmployEase
         </p>
         <div className="flex justify-center space-x-4 mt-2">
-          <a href="https://github.com/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+          <a href="https://github.com/jhuber1155/EmployEase" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
             <FaGithub size={20} />
           </a>
         </div>
