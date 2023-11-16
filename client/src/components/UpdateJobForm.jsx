@@ -18,10 +18,10 @@ const UpdateJobForm = ({ job }) => {
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         console.log(`Changing ${name} to ${value}`);
-        setForm((prevForm) => ({
-            ...prevForm,
+        setForm({
+            ...form,
             [name]: value,
-        }));
+        });
     };
 
     // update job when form submitted
@@ -98,6 +98,7 @@ const UpdateJobForm = ({ job }) => {
         </form>
     );
 };
+
 
 export default UpdateJobForm;
 
