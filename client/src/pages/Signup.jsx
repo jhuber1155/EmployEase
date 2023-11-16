@@ -38,7 +38,7 @@ const Signup = () => {
     };
 
     return (
-<main className="container mx-auto my-4 px-4">
+<main className="container min-h-screen mx-auto my-4 px-4">
     <div className="flex justify-center">
         <div className="w-full md:w-2/3 lg:w-1/2">
             <div className="bg-white shadow-lg rounded-lg">

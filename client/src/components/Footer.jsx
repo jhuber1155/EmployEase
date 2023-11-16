@@ -1,9 +1,8 @@
 import React from 'react';
-import { FaGithub, FaLinkedinIn, FaConnectdevelop } from 'react-icons/fa';
-import {CgMail} from 'react-icons/cg'
+import { FaGithub} from 'react-icons/fa';
 const Footer = () => {
   return (
-    <footer className=" bg-blue-500 text-white text-center my-4 p-4">
+    <footer className=" bg-white text-black text-center mt-2 p-4">
       <div className="container mx-auto">
         <p className="text-sm">
           &copy; {new Date().getFullYear()} EmployEase
