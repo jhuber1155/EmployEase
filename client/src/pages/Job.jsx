@@ -3,6 +3,7 @@ import { QUERY_JOB } from '../utils/queries';
 import { useParams } from 'react-router-dom';
 import UpdateJobForm from '../components/updateJobForm';
 import { Link } from 'react-router-dom';
+import Auth from '../utils/auth';
 
 const Job = () => {
     const { jobId } = useParams();
@@ -16,41 +17,50 @@ const Job = () => {
 
     console.log(job)
 
-
+    if (Auth.loggedIn()) {
     return (
         <main>
             {loading ? (
                 <div>Loading...</div>
             ) : (
                 <div>
-
-                    <div className="bg-white max-w-2xl mx-auto mb-3 rounded-md p-8 shadow-md">
-                        <h2 className="text-2xl font-semibold mb-4">{job.jobTitle}</h2>
-                        <p className="text-gray-600 mb-2">{job.companyName}</p>
-                        <p className="text-gray-600 mb-2">{job.location}</p>
-                        <p className="text-gray-600 mb-2">{job.salary}</p>
+                    <div className="bg-slate-200 max-w-2xl mx-auto mb-3 rounded-md p-8 shadow-md sm:flex justify-between">
+                        <div>
+                        <h2 className="text-2xl font-semibold mb-2">{job.jobTitle}</h2>
+                        <p className="text-xl text-gray-600 mb-2">{job.companyName}</p>
                         <p className="text-gray-600 mb-2">{job.fullTime ? 'Full-time' : 'Part-time'}</p>
-                        <p className="text-gray-800 mb-2">{job.description}</p>
-                        <a className="text-blue-500" href={job.jobLink}>Link</a>
-                        <p className="text-gray-600 my-2">Status: {job.status}</p>
-                        <p className="text-gray-600 mb-2">Applied On: {job.appliedOn}</p>
-                        <p className="text-gray-600 mb-2">{job.interviewOffered ? 'Interview Offered' : 'No Interview Offered'}</p>
-
+                        <p className="text-gray-600 mb-2"><span className='font-bold'>Salary: </span>{job.salary}</p>
+                        <p className="text-gray-600 mb-2"><span className='font-bold'>Location: </span>{job.location}</p>
+                        <p className="text-gray-600 mb-2"><span className='font-bold'>Description: </span>{job.description}</p>
+                        </div>
+                        <div className='align-self-center'>
+                        <p className="text-gray-600 mb-2"><span className='font-bold'>Applied: </span>{job.appliedOn}</p>
+                        <p className="text-gray-600 my-2"><span className='font-bold'>Status: </span>{job.status}</p>
+                        <p className="text-gray-600 mb-2 italic font-semibold">{job.interviewOffered ? 'Interview Offered' : 'No Interview Offered'}</p>
+                        <a className="text-blue-500" href={job.jobLink}>Job Link</a>
+                        </div>
                     </div>
-
                     <UpdateJobForm job={job} />
                     <div className='text-center mt-4'>
-
-                        <button className='bg-blue-500 text-white px-4 py-2 rounded-md'>
+                        <button className='bg-gray-500 text-white px-4 py-2 rounded-md'>
                             <Link to="/">Home</Link>
                         </button>
                     </div>
-
                 </div>
             )}
         </main>
-
+    )} 
+    return (
+        <>
+        <div className="bg-slate-200 max-w-2xl mx-auto mb-3 rounded-md p-8 shadow-md text-center">
+            <p className='text-2xl'>Login to View Job</p>
+        </div>
+        <div className="max-w-2xl mx-auto rounded-md p-8 shadow-md text-center">
+        <p className='text-xl'>Login to Edit Job</p>
+        </div>
+        </>
     )
+    
 };
 
 export default Job;
