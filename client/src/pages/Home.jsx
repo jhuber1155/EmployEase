@@ -4,7 +4,8 @@ import JobBoard from '../components/JobBoard.jsx';
 
 const Home = () => {
   const {loading, data } = useQuery(QUERY_ME);
-  const jobs = data?.jobs || [];
+  console.log(data);
+  const jobs = data?.me.jobs || [];
 
   return (
     <main>
