@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useMutation } from '@apollo/client';
-
+import Auth from '../utils/auth'
+ 
 import { ADD_JOB } from '../utils/mutations';
 
 const JobForm = () => {
@@ -10,12 +11,26 @@ const JobForm = () => {
     salary: '',
     companyName: '',
     location: '',
+    fullTime: false,
     description: '',
     jobLink: '',
     appliedOn: '',
     status: '',
+    interviewOffered: false,
   });
   
+  const toggleStatus = () => {
+    const toggle = formState.fullTime ? {fullTime: false} : {fullTime: true}
+    
+    setFormState({...formState, ...toggle})
+  }
+
+  const toggleInterviewStatus = () => {
+    const toggle = formState.interviewOffered ? {interviewOffered: false} : {interviewOffered: true}
+    
+    setFormState({...formState, ...toggle})
+  }
+
   useEffect(() =>{
     console.log(formState)
   },[formState])
@@ -26,7 +41,7 @@ const JobForm = () => {
     event.preventDefault();
       try{
         const { data } = await addJob({
-          variables: { ...formState },
+          variables: { ...formState, userId: Auth.getProfile().data._id },
         });
 
         setFormState({
@@ -153,6 +168,7 @@ const JobForm = () => {
                         name="fullTime"
                         id="fullTime"
                         autoComplete="fullTime"
+                        onClick={toggleStatus}
                         className="block rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         />
                     <label htmlFor="hours" className="ml-2 text-sm text-gray-900">
@@ -220,6 +236,7 @@ const JobForm = () => {
                         name="interviewOffered"
                         id="interviewOffered"
                         autoComplete="interviewOffered"
+                        onClick={toggleInterviewStatus}
                         className="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                         />
                 <label htmlFor="interview" className="ml-2 text-sm text-gray-900">
