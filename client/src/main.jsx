@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Login from './pages/Login.jsx'
 import Signup from './pages/Signup.jsx'
+import AddJob from './pages/AddJob.jsx'
 import Home from './pages/Home.jsx'
 
 import App from './App.jsx'
