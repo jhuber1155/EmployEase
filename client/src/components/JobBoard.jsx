@@ -1,11 +1,12 @@
 import React from 'react';
 import Board from 'react-trello';
 import { useMutation } from "@apollo/client";
-import { UPDATE_JOB } from "../utils/mutations";
+import { UPDATE_JOB, DELETE_JOB } from "../utils/mutations";
 
 const JobBoard = ({ jobs }) => {
 
   const [updateJob] = useMutation(UPDATE_JOB)
+  const [deleteJob] = useMutation(DELETE_JOB)
 
   if (!jobs.length) {
     return <h3>No Jobs Yet</h3>
@@ -114,8 +115,6 @@ const JobBoard = ({ jobs }) => {
       onCardMoveAcrossLanes={async function updateStatus(fromLaneId, toLaneId, cardId, index) {
         if (fromLaneId !== toLaneId) {
           try {
-            console.log(typeof cardId);
-            console.log(cardId);
             await updateJob({
               variables: {
                 jobId: cardId,
@@ -125,6 +124,18 @@ const JobBoard = ({ jobs }) => {
           } catch (err) {
             console.error(err);
           }
+        }
+      }}
+      onCardDelete={function handleDelete(cardId){
+        try {
+          deleteJob({
+            variables: {
+              jobId: cardId
+            }
+          });
+          window.location.reload(false)
+        } catch (err) {
+          console.error(err);
         }
       }}
     />
