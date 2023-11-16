@@ -24,11 +24,12 @@ const router = createBrowserRouter([
       , {
         path: '/signup',
         element: <Signup/>
-      }
-      // }, {
-      //   path: '/addJob',
-      //   element: <AddJob />
-      // }, {
+      }, 
+      {
+        path: '/addJob',
+        element: <AddJob />
+      }, 
+      //{
       //   path: '/jobs/:jobid',
       //   element: <Jobs />
       // }
