@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useMutation } from '@apollo/client';
 
 import { ADD_JOB } from '../utils/mutations';
@@ -16,6 +16,10 @@ const JobForm = () => {
     status: '',
   });
   
+  useEffect(() =>{
+    console.log(formState)
+  },[formState])
+
   const [addJob, { error }] = useMutation(ADD_JOB)
 
   const handleFormSubmit = async (event) => {
@@ -35,13 +39,17 @@ const JobForm = () => {
           appliedOn: '',
           status: '',
         });
+
+        window.location.assign("/")
       } catch (err) {
         console.error(err);
       }
   };
 
     const handleChange = (event) => {
-        //??????
+        const { name, value } = event.target;
+        setFormState({...formState, [name]:value})
+        // console.log(`Changing ${name} to ${value}`);
     }
 
     return (
@@ -107,8 +115,8 @@ const JobForm = () => {
               <div className="mt-2.5">
                 <input
                   type="text"
-                  name="company"
-                  id="company"
+                  name="companyName"
+                  id="companyName"
                   value={formState.companyName}
                   onChange={handleChange}
                   autoComplete="companyName"
@@ -165,7 +173,6 @@ const JobForm = () => {
                   rows={4}
                   className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   placeholder="Enter some key information about this particular job"
-                  defaultValue={''}
                 />
               </div>
             </div>
@@ -176,8 +183,8 @@ const JobForm = () => {
               <div className="mt-2.5">
                 <input
                   type="text"
-                  name="link"
-                  id="link"
+                  name="jobLink"
+                  id="jobLink"
                   value={formState.jobLink}
                   onChange={handleChange}
                   autoComplete="jobLink"
@@ -193,8 +200,8 @@ const JobForm = () => {
               <div className="mt-2.5">
                 <input
                   type="text"
-                  name="date"
-                  id="date"
+                  name="appliedOn"
+                  id="appliedOn"
                   value={formState.appliedOn}
                   onChange={handleChange}
                   autoComplete="appliedOn"
@@ -210,8 +217,8 @@ const JobForm = () => {
                     <div className="mt-2.5 flex items-center">
                         <input
                         type="checkbox"
-                        name="interview"
-                        id="interview"
+                        name="interviewOffered"
+                        id="interviewOffered"
                         autoComplete="interviewOffered"
                         className="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                         />
