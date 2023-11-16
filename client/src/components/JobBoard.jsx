@@ -1,7 +1,12 @@
-import React from 'react'
-import Board from 'react-trello'
+import React from 'react';
+import Board from 'react-trello';
+import { useMutation } from "@apollo/client";
+import { UPDATE_JOB } from "../utils/mutations";
 
-const JobBoard = ({jobs}) => {
+const JobBoard = ({ jobs }) => {
+
+  const [updateJob] = useMutation(UPDATE_JOB)
+
   if (!jobs.length) {
     return <h3>No Jobs Yet</h3>
   }
@@ -11,12 +16,13 @@ const JobBoard = ({jobs}) => {
   const rejected = [];
   const accepted = [];
 
-  for (let i =0; i<jobs.length; i++) {
-    const {id, jobTitle, companyName, description, appliedOn, salary, location, fullTime, status} = jobs[i];
+  for (let i = 0; i < jobs.length; i++) {
+    const { id, jobTitle, jobLink, companyName, description, appliedOn, salary, location, fullTime, status } = jobs[i];
     const jobData = {
       id: id,
       title: jobTitle,
       description: `Company: ${companyName}\nDescription: ${description}`,
+      url: jobLink,
       label: appliedOn,
       tags: [
         // Salary 
@@ -27,28 +33,28 @@ const JobBoard = ({jobs}) => {
         },
 
         // Remote tag shows in different color than location tag
-        jobs[i].location=="Remote"?{
+        jobs[i].location == "Remote" ? {
           bgcolor: '#8866BB',
           color: 'white',
           title: 'Remote'
-        }:{
+        } : {
           bgcolor: '#779944',
           title: location
         },
 
         // Tag for full/part time
-        fullTime?{
+        fullTime ? {
           bgcolor: '#14A5B9',
           color: 'white',
           title: 'Full time'
-        }:{
+        } : {
           bgcolor: '#EB5A46',
           color: 'white',
           title: 'Part time'
         }
       ]
     }
-    
+
     switch (status) {
       case 'Open':
         open.push(jobData);
@@ -56,7 +62,7 @@ const JobBoard = ({jobs}) => {
       case 'Rejected':
         rejected.push(jobData);
         break;
-      default: 
+      default:
         accepted.push(jobData);
     }
   };
@@ -65,7 +71,7 @@ const JobBoard = ({jobs}) => {
   const data = {
     lanes: [
       {
-        id: 'lane1',
+        id: 'Open',
         title: 'Open Applications',
         label: `${open.length}/${jobs.length}`, //label is jobs in lane/total jobs
         cards: open,
@@ -75,7 +81,7 @@ const JobBoard = ({jobs}) => {
         },
       },
       {
-        id: 'lane2',
+        id: 'Rejected',
         title: 'Rejected',
         label: `${rejected.length}/${jobs.length}`, //label is jobs in lane/total jobs
         cards: rejected,
@@ -86,7 +92,7 @@ const JobBoard = ({jobs}) => {
         },
       },
       {
-        id: 'lane3',
+        id: 'Accepted',
         title: 'Accepted',
         label: `${accepted.length}/${jobs.length}`, //label is jobs in lane/total jobs
         cards: accepted,
@@ -100,7 +106,28 @@ const JobBoard = ({jobs}) => {
   }
 
   return (
-    <Board data={data} />
+    <Board
+      data={data}
+      onCardClick={function goToJob(cardId) {
+        window.location.assign(`/jobs/${cardId}`);
+      }}
+      onCardMoveAcrossLanes={async function updateStatus(fromLaneId, toLaneId, cardId, index) {
+        if (fromLaneId !== toLaneId) {
+          try {
+            console.log(typeof cardId);
+            console.log(cardId);
+            await updateJob({
+              variables: {
+                jobId: cardId,
+                status: toLaneId
+              }
+            })
+          } catch (err) {
+            console.error(err);
+          }
+        }
+      }}
+    />
   )
 }
 

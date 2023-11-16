@@ -71,7 +71,7 @@ export const ADD_JOB = gql`
 export const UPDATE_JOB = gql`
   mutation Mutation(
     $jobId: ID!
-    $salary: String!
+    $salary: String
     $location: String
     $fullTime: Boolean
     $interviewOffered: Boolean
