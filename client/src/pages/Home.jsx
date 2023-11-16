@@ -5,12 +5,7 @@ import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
 
 const Home = () => {
-  const logout = (event) => {
-    event.preventDefault();
-    Auth.logout();
-  };
   const { loading, data } = useQuery(QUERY_ME);
-  console.log(data);
   const jobs = data?.me.jobs || [];
   if (Auth.loggedIn()) {
     return (
