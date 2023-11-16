@@ -60,11 +60,16 @@ query me {
       id
       username
       email
-      password
       jobs {
         id
         jobTitle
         companyName
+        description
+        appliedOn
+        salary
+        location
+        fullTime
+        status
       }
     }
   }
