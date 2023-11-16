@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useMutation } from "@apollo/client";
+import { UPDATE_JOB } from "../utils/mutations";
 
 const UpdateJobForm = ({ job }) => {
+
+    const [ updateJob ] = useMutation(UPDATE_JOB)
+
     // Initialize form state with job prop
     const [form, setForm] = useState(job);
 
@@ -20,9 +25,21 @@ const UpdateJobForm = ({ job }) => {
     };
 
     // update job when form submitted
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(form);
+        try {
+            const { data  } = await updateJob({
+                variables: {
+                    jobId: form.id,
+                    salary: form.salary,
+                    status: form.status,
+                    interviewOffered: form.interviewOffered 
+                }
+            })
+        } catch (err) {
+            console.error(err);
+          }
+
     };
 
     // toggle the interview status
