@@ -53,10 +53,10 @@ const Job = () => {
     return (
         <>
         <div className="bg-slate-200 max-w-2xl mx-auto mb-3 rounded-md p-8 shadow-md text-center">
-            <p className='text-2xl'>Login to View Job</p>
+        <Link className="text-2xl" to="/login">Login to View Job</Link>
         </div>
-        <div className="max-w-2xl mx-auto rounded-md p-8 shadow-md text-center">
-        <p className='text-xl'>Login to Edit Job</p>
+        <div className="bg-slate-200 max-w-2xl mx-auto mb-3 rounded-md p-8 shadow-md text-center">
+        <Link className="text-2xl" to="/login">Login to Edit Job</Link>
         </div>
         </>
     )
