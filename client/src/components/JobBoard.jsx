@@ -12,17 +12,18 @@ const JobBoard = ({jobs}) => {
   const accepted = [];
 
   for (let i =0; i<jobs.length; i++) {
+    const {id, jobTitle, companyName, description, appliedOn, salary, location, fullTime, status} = jobs[i];
     const jobData = {
-      id: jobs[i].id,
-      title: jobs[i].jobTitle,
-      description: `Company: ${jobs[i].companyName}\nDescription: ${jobs[i].description}`,
-      label: jobs[i].appliedOn,
+      id: id,
+      title: jobTitle,
+      description: `Company: ${companyName}\nDescription: ${description}`,
+      label: appliedOn,
       tags: [
         // Salary 
         {
           bgcolor: '#afcafe',
           color: 'white',
-          title: jobs[i].salary
+          title: salary
         },
 
         // Remote tag shows in different color than location tag
@@ -32,11 +33,11 @@ const JobBoard = ({jobs}) => {
           title: 'Remote'
         }:{
           bgcolor: '#779944',
-          title: jobs[i].location
+          title: location
         },
 
         // Tag for full/part time
-        jobs[i].fullTime?{
+        fullTime?{
           bgcolor: '#14A5B9',
           color: 'white',
           title: 'Full time'
@@ -48,7 +49,7 @@ const JobBoard = ({jobs}) => {
       ]
     }
     
-    switch (jobs[i].status) {
+    switch (status) {
       case 'Open':
         open.push(jobData);
         break;
