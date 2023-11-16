@@ -12,14 +12,44 @@ const JobBoard = ({jobs}) => {
   const accepted = [];
 
   for (let i =0; i<jobs.length; i++) {
+    const {id, jobTitle, companyName, description, appliedOn, salary, location, fullTime, status} = jobs[i];
     const jobData = {
-      id: jobs[i].jobId,
-      title: jobs[i].jobTitle,
-      description: `Salary: ${jobs[i].salary}\nDescription: ${jobs[i].description}`,
-      label: jobs[i].companyName
+      id: id,
+      title: jobTitle,
+      description: `Company: ${companyName}\nDescription: ${description}`,
+      label: appliedOn,
+      tags: [
+        // Salary 
+        {
+          bgcolor: '#afcafe',
+          color: 'white',
+          title: salary
+        },
+
+        // Remote tag shows in different color than location tag
+        jobs[i].location=="Remote"?{
+          bgcolor: '#8866BB',
+          color: 'white',
+          title: 'Remote'
+        }:{
+          bgcolor: '#779944',
+          title: location
+        },
+
+        // Tag for full/part time
+        fullTime?{
+          bgcolor: '#14A5B9',
+          color: 'white',
+          title: 'Full time'
+        }:{
+          bgcolor: '#EB5A46',
+          color: 'white',
+          title: 'Part time'
+        }
+      ]
     }
     
-    switch (jobs[i].status) {
+    switch (status) {
       case 'Open':
         open.push(jobData);
         break;
@@ -37,20 +67,34 @@ const JobBoard = ({jobs}) => {
       {
         id: 'lane1',
         title: 'Open Applications',
-        label: '1/1',
-        cards: open
+        label: `${open.length}/${jobs.length}`, //label is jobs in lane/total jobs
+        cards: open,
+        style: {
+          boxShadow: '2px 2px 4px 0px rgba(0,0,0,0.75)',
+          color: '#fff',
+        },
       },
       {
         id: 'lane2',
         title: 'Rejected',
-        label: '0/0',
-        cards: rejected
+        label: `${rejected.length}/${jobs.length}`, //label is jobs in lane/total jobs
+        cards: rejected,
+        style: {
+          backgroundColor: '#EB5A46',
+          boxShadow: '2px 2px 4px 0px rgba(0,0,0,0.75)',
+          color: '#fff',
+        },
       },
       {
         id: 'lane3',
         title: 'Accepted',
-        label: '0/0',
-        cards: accepted
+        label: `${accepted.length}/${jobs.length}`, //label is jobs in lane/total jobs
+        cards: accepted,
+        style: {
+          backgroundColor: '#61BD4F',
+          boxShadow: '2px 2px 4px 0px rgba(0,0,0,0.75)',
+          color: '#fff',
+        },
       }
     ]
   }
