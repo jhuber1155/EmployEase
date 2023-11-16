@@ -9,35 +9,27 @@ const Job = () => {
         variables: { jobId: jobId },
     });
 
-    const job = data?.getJob || [];
+    const { jobTitle, companyName, salary, description, location, fullTime, status, appliedOn, interviewOffered, jobLink } = data?.getJob || [];
 
-    console.log(job)
+    console.log(jobTitle)
 
     return (
         <main>
             {loading ? (
                 <div>Loading...</div>
             ) : (
-                <div>
-                    <h2>{job.jobTitle}</h2>
-                    <p>{job.companyName}</p>
-                    <p>{job.salary}</p>
-                    <p>{job.description}</p>
-                    <p>{job.jobLink}</p>
-                    <p>{job.appliedOn}</p>
-                    <p>{job.status}</p>
-                    <p>{job.location}</p>
-                    {job.fullTime ? (
-                        <div>FULLTIME</div>
-                    ) : (
-                        <div>PARTTIME</div>
-                    )}
-                    {job.interviewOffered ? (
-                        <div>INTERVIEWED</div>
-                    ) : (
-                        <div>INTERVIEW PENDING</div>
-                    )}
-                </div>
+                <div className="bg-white max-w-2xl mx-auto rounded-md p-8 shadow-md">
+          <h2 className="text-2xl font-semibold mb-4">{jobTitle}</h2>
+          <p className="text-gray-600 mb-2">{companyName}</p>
+          <p className="text-gray-600 mb-2">{location}</p>
+          <p className="text-gray-600 mb-2">{salary}</p>
+          <p className="text-gray-600 mb-2">{fullTime ? 'Full-time' : 'Part-time'}</p>
+          <p className="text-gray-800 mb-4">{description}</p>
+          <a className="text-blue-500 mb-2" href={jobLink}>Link</a>
+          <p className="text-gray-600 mb-2">Status: {status}</p>
+          <p className="text-gray-600 mb-2">Applied On: {appliedOn}</p>
+          <p className="text-gray-600 mb-2">{interviewOffered ? 'Interview Offered' : 'No Interview Offered'}</p>
+        </div>
             )}
         </main>
 
