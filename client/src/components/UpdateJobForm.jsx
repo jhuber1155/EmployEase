@@ -81,7 +81,7 @@ const UpdateJobForm = ({ job }) => {
                     <option value="Rejected">Rejected</option>
                 </select>
             </label>
-            <p className="mb-1">Click to toggle interview status</p>
+            <p className="my-2">Click to toggle interview status:</p>
             <button
                 type="button"
                 name="interviewOffered"
