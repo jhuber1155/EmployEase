@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Login from './pages/Login.jsx'
 import Signup from './pages/Signup.jsx'
+import AddJob from './pages/AddJob.jsx'
 import Home from './pages/Home.jsx'
 import Job from './pages/Job.jsx'
 
@@ -28,12 +29,12 @@ const router = createBrowserRouter([
         path: '/signup',
         element: <Signup/>
       }, 
-      // {
-      //   path: '/addJob',
-      //   element: <AddJob />
-      // }, 
       {
-        path: '/jobs/:jobId',
+        path: '/addJob',
+        element: <AddJob />
+      }, 
+      {
+        path: '/jobs/:jobid',
         element: <Job />
       }
     ]
