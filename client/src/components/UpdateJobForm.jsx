@@ -1,0 +1,86 @@
+import React, { useState, useEffect } from "react";
+
+const UpdateJobForm = ({ job }) => {
+    // Initialize form state with job prop
+    const [form, setForm] = useState(job);
+
+    // Update form state when job prop changes
+    useEffect(() => {
+        setForm(job);
+    }, [job]);
+
+    // change job prop value 
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        console.log(`Changing ${name} to ${value}`);
+        setForm((prevForm) => ({
+            ...prevForm,
+            [name]: value,
+        }));
+    };
+
+    // update job when form submitted
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(form);
+    };
+
+    // toggle the interview status
+    const toggleInterviewStatus = () => {
+        {
+            form.interviewOffered ? console.log(`Changing interview status to interviewing`)
+            : console.log(`Changing interview status to pending`);
+        }
+
+        setForm((prevForm) => ({
+            ...prevForm,
+            interviewOffered: !prevForm.interviewOffered,
+        }));
+    };
+
+    return (
+        <form onSubmit={handleSubmit} className="bg-white max-w-2xl mx-auto rounded-md p-8 shadow-md flex flex-col">
+            <h2 className="text-2xl font-semibold mb-4">Update Job</h2>
+            <label className="block mb-2">
+                Salary
+                <input
+                    type="text"
+                    name="salary"
+                    value={form.salary}
+                    onChange={handleInputChange}
+                    className="w-full border rounded-md p-2"
+                />
+            </label>
+            <label className="block mb-2">
+                Status
+                <select
+                    name="status"
+                    value={form.status}
+                    onChange={handleInputChange}
+                    className="w-full border rounded-md p-2"
+                >
+                    <option value="Open">Open</option>
+                    <option value="Accepted">Accepted</option>
+                    <option value="Rejected">Rejected</option>
+                </select>
+            </label>
+            <p className="mb-1">Click to toggle interview status</p>
+            <button
+                type="button"
+                name="interviewOffered"
+                value={form.interviewOffered}
+                onClick={toggleInterviewStatus}
+                className={form.interviewOffered ? "bg-green-300 text-gray-700 font-bold px-4 py-2 rounded-md mr-2 mb-4 md:w-4/12" : "bg-yellow-300 text-gray-700 font-bold px-4 py-2 rounded-md mr-2 mb-4 md:w-4/12"}
+            >
+                {form.interviewOffered ? "Interviewing" : "Pending Interview"}
+            </button>
+
+            <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md self-center">
+                Save Changes
+            </button>
+        </form>
+    );
+};
+
+export default UpdateJobForm;
+
