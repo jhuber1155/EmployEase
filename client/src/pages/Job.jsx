@@ -9,26 +9,38 @@ const Job = () => {
         variables: { jobId: jobId },
     });
 
-    const job = data?.job || [];
+    const job = data?.getJob || [];
 
-    console.log(jobId)
+    console.log(job)
 
     return (
         <main>
-        {loading ? (
-            <div>Loading...</div>
-        ) : (
-            <div>
-                <h2>{job.jobTitle || 'No title available'}</h2>
-                <p>{job.companyName || 'No company name available'}</p>
-                <p>{job.salary || 'No salary information available'}</p>
-                <p>{job.description || 'No description available'}</p>
-                <p>{job.jobLink || 'No job link available'}</p>
-                <p>{job.appliedOn || 'No application date available'}</p>
-            </div>
-        )}
-    </main>
-    
+            {loading ? (
+                <div>Loading...</div>
+            ) : (
+                <div>
+                    <h2>{job.jobTitle}</h2>
+                    <p>{job.companyName}</p>
+                    <p>{job.salary}</p>
+                    <p>{job.description}</p>
+                    <p>{job.jobLink}</p>
+                    <p>{job.appliedOn}</p>
+                    <p>{job.status}</p>
+                    <p>{job.location}</p>
+                    {job.fullTime ? (
+                        <div>FULLTIME</div>
+                    ) : (
+                        <div>PARTTIME</div>
+                    )}
+                    {job.interviewOffered ? (
+                        <div>INTERVIEWED</div>
+                    ) : (
+                        <div>INTERVIEW PENDING</div>
+                    )}
+                </div>
+            )}
+        </main>
+
     )
 };
 
