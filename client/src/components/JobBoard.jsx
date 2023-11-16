@@ -100,7 +100,7 @@ const JobBoard = ({jobs}) => {
   }
 
   return (
-    <Board data={data} />
+      <Board data={data} />
   )
 }
 
