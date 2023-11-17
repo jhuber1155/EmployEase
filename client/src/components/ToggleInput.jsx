@@ -6,7 +6,9 @@ const ToggleInput = ({ formId, title, options, isOption1=true, onChange, labelCl
   }
   return (
     <div>
-      <p className={labelClasses}>{title}</p>
+      <label htmlFor={formId} className={labelClasses}>
+        {title}
+      </label>
       <button
         type="button"
         id={formId}
