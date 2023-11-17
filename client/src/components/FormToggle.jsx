@@ -1,4 +1,4 @@
-const ToggleInput = ({ formId, title, options, isOption1=true, onChange, labelClasses, inputClassesOptions}) => {
+const FormToggle = ({ formId, title, options, isOption1=true, onChange, labelClasses, inputClassesOptions}) => {
 
   const handleChange = (event) => {
     const { value } = event.target;
@@ -22,4 +22,4 @@ const ToggleInput = ({ formId, title, options, isOption1=true, onChange, labelCl
   )
 }
 
-export default ToggleInput
+export default FormToggle

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import { UPDATE_JOB } from "../utils/mutations";
 import FormInput from "./FormInput";
-import ToggleInput from "./ToggleInput";
+import FormToggle from "./FormToggle";
 
 const UpdateJobForm = ({ job }) => {
 
@@ -82,7 +82,7 @@ const UpdateJobForm = ({ job }) => {
                 labelClasses="block mb-2"
                 inputClasses="w-full border rounded-md p-2"
             />
-            <ToggleInput
+            <FormToggle
                 formId="interviewOffered"
                 title="Click to toggle interview status:"
                 options={[
