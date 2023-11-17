@@ -77,8 +77,10 @@ const JobBoard = ({ jobs }) => {
         label: `${open.length}/${jobs.length}`, //label is jobs in lane/total jobs
         cards: open,
         style: {
+          backgroundColor: '#94A3B8',
           boxShadow: '2px 2px 4px 0px rgba(0,0,0,0.75)',
           color: '#fff',
+          width: '350px',
         },
       },
       {
@@ -90,6 +92,7 @@ const JobBoard = ({ jobs }) => {
           backgroundColor: '#EB5A46',
           boxShadow: '2px 2px 4px 0px rgba(0,0,0,0.75)',
           color: '#fff',
+          width: '350px',
         },
       },
       {
@@ -101,44 +104,49 @@ const JobBoard = ({ jobs }) => {
           backgroundColor: '#61BD4F',
           boxShadow: '2px 2px 4px 0px rgba(0,0,0,0.75)',
           color: '#fff',
+          width: '350px',
         },
       }
     ]
   }
 
   return (
-    <Board
-      data={data}
-      onCardClick={function goToJob(cardId) {
-        window.location.assign(`/jobs/${cardId}`);
-      }}
-      onCardMoveAcrossLanes={async function updateStatus(fromLaneId, toLaneId, cardId, index) {
-        if (fromLaneId !== toLaneId) {
-          try {
-            await updateJob({
-              variables: {
-                jobId: cardId,
-                status: toLaneId
+    <>
+      <div id='trelloContainer'>
+        <Board
+          data={data}
+          onCardClick={function goToJob(cardId) {
+            window.location.assign(`/jobs/${cardId}`);
+          }}
+          onCardMoveAcrossLanes={async function updateStatus(fromLaneId, toLaneId, cardId, index) {
+            if (fromLaneId !== toLaneId) {
+              try {
+                await updateJob({
+                  variables: {
+                    jobId: cardId,
+                    status: toLaneId
+                  }
+                })
+              } catch (err) {
+                console.error(err);
               }
-            })
-          } catch (err) {
-            console.error(err);
-          }
-        }
-      }}
-      onCardDelete={function handleDelete(cardId){
-        try {
-          deleteJob({
-            variables: {
-              jobId: cardId
             }
-          });
-          window.location.reload(false)
-        } catch (err) {
-          console.error(err);
-        }
-      }}
-    />
+          }}
+          onCardDelete={function handleDelete(cardId) {
+            try {
+              deleteJob({
+                variables: {
+                  jobId: cardId
+                }
+              });
+              window.location.reload(false)
+            } catch (err) {
+              console.error(err);
+            }
+          }}
+        />
+      </div>
+    </>
   )
 }
 

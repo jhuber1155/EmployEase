@@ -93,8 +93,8 @@ const UpdateJobForm = ({ job }) => {
                 onChange={handleFormChange}
                 labelClasses="my-2"
                 inputClassesOptions={[
-                    "bg-green-300 text-gray-700 font-bold px-4 py-2 rounded-md mr-2 mb-4 md:w-4/12",
-                    "bg-yellow-300 text-gray-700 font-bold px-4 py-2 rounded-md mr-2 mb-4 md:w-4/12"
+                    "bg-green-300 text-gray-700 font-bold px-4 py-2 rounded-md mb-4 md:w-3/12 flex",
+                    "bg-yellow-300 text-gray-700 font-bold px-4 py-2 rounded-md mb-4 md:w-4/12 flex"
                 ]}
             />
 
