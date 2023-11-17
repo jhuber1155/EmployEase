@@ -19,7 +19,7 @@ const Footer = () => {
     };
 
     updateBackgroundColor();
-  }, [location.pathname]); // Dependency array with pathname
+  }, [location]);
 
   return (
     <footer className={`${backgroundColorClass} text-black text-center  p-4`}>
