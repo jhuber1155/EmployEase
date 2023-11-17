@@ -1,11 +1,11 @@
-const FormToggle = ({ formId, title, options, isOption1=true, onChange, labelClasses, inputClassesOptions}) => {
+const FormToggle = ({ formId, title, options, isOption1=true, onChange, containerClasses="sm:col-span-2", labelClasses, inputClassesOptions}) => {
 
   const handleChange = (event) => {
     const { value } = event.target;
     onChange(formId, value =='true'? false : true);
   }
   return (
-    <div>
+    <div className={containerClasses}>
       <label className={labelClasses}>
         {title}
       </label>
