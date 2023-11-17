@@ -1,5 +1,3 @@
-import DatePicker from "react-datepicker";
-
 const FormInput = ({ type = 'text', formId, title, value, onChange, placeholder = "Enter Text Here" }) => {
 
   const handleChange = (event) => {
