@@ -14,8 +14,5 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^5.3.0"
-  },
-  "dependencies": {
-    "@esbuild/win32-x64": "^0.19.5"
   }
 }
