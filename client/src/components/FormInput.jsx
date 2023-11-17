@@ -1,4 +1,4 @@
-const FormInput = ({ type = 'text', formId, title, value, onChange, placeholder = "Enter Text Here", containerClasses="sm:col-span-2", labelClasses, inputClasses }) => {
+const FormInput = ({ type = 'text', formId, title, value, onChange, placeholder = "Enter Text Here", containerClasses="sm:col-span-2", labelClasses, inputClasses, required=false }) => {
 
   const handleChange = (event) => {
     const { value } = event.target;
@@ -11,6 +11,7 @@ const FormInput = ({ type = 'text', formId, title, value, onChange, placeholder 
         {title}
       </label>
       <input
+        // {required ? "required" : ""}
         type={type}
         id={formId}
         value={value}
