@@ -146,8 +146,8 @@ const JobForm = () => {
               onChange={handleFormChange}
               labelClasses="my-2"
               inputClassesOptions={[
-                "bg-green-300 text-gray-700 font-bold px-4 py-2 rounded-md mr-2 mb-4 md:w-4/12",
-                "bg-yellow-300 text-gray-700 font-bold px-4 py-2 rounded-md mr-2 mb-4 md:w-4/12"
+                "bg-green-300 text-gray-700 font-bold px-4 py-2 rounded-md mx-2 mb-4 md:w-6/12 lg:w-6/12",
+                "bg-yellow-300 text-gray-700 font-bold px-4 py-2 rounded-md mx-2 mb-4 md:w-4/12 lg:w-6/12"
               ]}
             />
             <FormToggle
@@ -161,8 +161,8 @@ const JobForm = () => {
               onChange={handleFormChange}
               labelClasses="my-2"
               inputClassesOptions={[
-                "bg-green-300 text-gray-700 font-bold px-4 py-2 rounded-md mr-2 mb-4 md:w-4/12",
-                "bg-yellow-300 text-gray-700 font-bold px-4 py-2 rounded-md mr-2 mb-4 md:w-4/12"
+                "bg-green-300 text-gray-700 font-bold px-4 py-2 rounded-md mx-2",
+                "bg-yellow-300 text-gray-700 font-bold px-4 py-2 rounded-md mx-2 mb-4 md:w-4/12 lg:w-6/12"
               ]}
             />
             <div className="sm:col-span-2">
