@@ -17,15 +17,6 @@ const UpdateJobForm = ({ job }) => {
     }, [job]);
 
     // change job prop value 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        console.log(`Changing ${name} to ${value}`);
-        setFormState({
-            ...formState,
-            [name]: value,
-        });
-    };
-
     const handleFormChange = (name, value) => {
         setFormState({ ...formState, [name]: value })
     }
@@ -60,19 +51,14 @@ const UpdateJobForm = ({ job }) => {
                 labelClasses="block mb-2"
                 inputClasses="w-full border rounded-md p-2"
             />
-            <label className="block mb-2">
-                Status
-                <select
-                    name="status"
-                    value={formState.status}
-                    onChange={handleInputChange}
-                    className="w-full border rounded-md p-2"
-                >
-                    <option value="Open">Open</option>
-                    <option value="Accepted">Accepted</option>
-                    <option value="Rejected">Rejected</option>
-                </select>
-            </label>
+            <FormInput
+                formId="status"
+                title="Current Status"
+                value={formState.status}
+                onChange={handleFormChange}
+                labelClasses="block mb-2"
+                inputClasses="w-full border rounded-md p-2"
+            />
             <FormInput
                 formId="description"
                 title="Update Description"
