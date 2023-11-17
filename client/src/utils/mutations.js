@@ -73,6 +73,7 @@ export const UPDATE_JOB = gql`
     $jobId: ID!
     $salary: String
     $location: String
+    $description: String
     $fullTime: Boolean
     $interviewOffered: Boolean
     $status: String
@@ -80,6 +81,7 @@ export const UPDATE_JOB = gql`
     updateJob(
       jobId: $jobId
       salary: $salary
+      description: $description
       location: $location
       fullTime: $fullTime
       interviewOffered: $interviewOffered
@@ -89,6 +91,7 @@ export const UPDATE_JOB = gql`
       salary
       location
       fullTime
+      description
       interviewOffered
       status
     }
