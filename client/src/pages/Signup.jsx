@@ -42,7 +42,7 @@ const Signup = () => {
     <div className="flex justify-center">
         <div className="w-full md:w-2/3 lg:w-1/2">
             <div className="bg-white shadow-lg rounded-lg">
-                <h4 className="bg-gray-800 text-white text-lg font-semibold py-3 px-4 rounded-t-lg">Sign Up</h4>
+                <h4 className="bg-slate-400 text-white text-3xl font-semibold py-3 px-4 rounded-t-lg">Sign Up</h4>
                 <div className="p-4">
                     {data ? (
                         <p>
@@ -83,7 +83,7 @@ const Signup = () => {
                                     onChange={handleChange}
                                 />
                             </div>
-                            <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full" type="submit">
+                            <button className="bg-green-400 hover:bg-green-600 text-white font-bold py-2 px-4 rounded w-full" type="submit">
                                 Submit
                             </button>
                         </form>
