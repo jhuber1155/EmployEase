@@ -8,6 +8,9 @@ export default {
     extend: {
       backgroundImage: {
         "main": "url('mylink')"
+      },
+      colors: {
+        jobPageBlue: '#3179ba',
       }
     }
   },
