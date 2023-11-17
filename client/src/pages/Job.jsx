@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client';
 import { QUERY_JOB } from '../utils/queries';
 import { useParams } from 'react-router-dom';
-import UpdateJobForm from '../components/updateJobForm';
+import UpdateJobForm from '../components/UpdateJobForm';
 import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
 import { FaHome } from "react-icons/fa";
@@ -15,8 +15,6 @@ const Job = () => {
 
     // const { jobTitle, companyName, salary, description, location, fullTime, status, appliedOn, interviewOffered, jobLink } = data?.getJob || [];
     const job = data?.getJob || [];
-
-    console.log(job)
 
     if (Auth.loggedIn()) {
         return (
