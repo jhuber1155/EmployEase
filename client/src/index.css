@@ -2,3 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+.sc-jrAGKZ > div > div > article{
+    min-width: 300px;
+}
+
+@media (max-width: 1100px){
+    #trelloContainer > div > div > div > section{
+        width: 100%;
+        flex-direction: column;
+        position: none;
+        display: block;
+    }
+    #trelloContainer > div > div {
+        flex-wrap: wrap;
+    }
+}

@@ -12,7 +12,7 @@ export default {
       colors: {
         jobPageBlue: '#3179ba',
       }
-    },
+    }
   },
   plugins: [],
 }
