@@ -55,7 +55,7 @@ const Signup = () => {
                         <form onSubmit={handleFormSubmit}>
                             <div className="mb-4">
                                 <input
-                                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    className="appearance-none block w-full px-3 py-2 border bg-slate-100 border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none sm:text-sm"
                                     placeholder="Your username"
                                     name="username"
                                     type="text"
@@ -65,7 +65,7 @@ const Signup = () => {
                             </div>
                             <div className="mb-4">
                                 <input
-                                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    className="appearance-none block w-full px-3 py-2 border bg-slate-100 border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none sm:text-sm"
                                     placeholder="Your email"
                                     name="email"
                                     type="email"
@@ -75,7 +75,7 @@ const Signup = () => {
                             </div>
                             <div className="mb-4">
                                 <input
-                                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    className="appearance-none block w-full px-3 py-2 border bg-slate-100 border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none sm:text-sm"
                                     placeholder="******"
                                     name="password"
                                     type="password"
