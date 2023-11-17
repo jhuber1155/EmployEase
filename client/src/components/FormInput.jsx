@@ -1,6 +1,4 @@
-import { useState } from 'react';
-
-const FormInput = ({ formId, title, value, onChange, placeholder = "Enter Text Here" }) => {
+const FormInput = ({ type = 'text', formId, title, value, onChange, placeholder = "Enter Text Here" }) => {
 
   const handleChange = (event) => {
     const { value } = event.target;
@@ -10,11 +8,11 @@ const FormInput = ({ formId, title, value, onChange, placeholder = "Enter Text H
   return (
     <div className="sm:col-span-2">
       <label htmlFor={formId} className="block text-sm font-semibold leading-6 text-gray-900">
-        {title}:
+        {title}
       </label>
       <div className="mt-2.5">
         <input
-          type="text"
+          type={type}
           id={formId}
           value={value}
           onChange={handleChange}
@@ -24,7 +22,6 @@ const FormInput = ({ formId, title, value, onChange, placeholder = "Enter Text H
       </div>
     </div>
   )
-
 }
 
 export default FormInput;
