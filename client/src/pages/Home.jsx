@@ -15,16 +15,11 @@ const Home = () => {
         ) : (
           <JobBoard jobs={jobs} />
         )}
-        <div className='text-center mt-4'>
-          <button className='bg-blue-500 text-white px-4 py-2 rounded-md'>
-            <Link to="/addJob">+ Add New Job</Link>
-          </button>
-        </div>
       </main>
     )
   } return (
     <div className='text-center mt-4'>
-      <button className='bg-blue-500 text-white px-4 py-2 rounded-md'>
+      <button className='bg-cyan-400 text-white px-4 py-2 rounded-md hover:bg-cyan-700'>
         <Link to="/login">Login to View Jobs</Link>
       </button>
     </div>
