@@ -9,7 +9,7 @@ export default {
       backgroundImage: {
         "main": "url('mylink')"
       }
-    },
+    }
   },
   plugins: [],
 }
