@@ -1,8 +1,28 @@
-import React from 'react';
-import { FaGithub} from 'react-icons/fa';
+import { FaGithub } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+
 const Footer = () => {
+  const location = useLocation();
+  const [backgroundColorClass, setBackgroundColorClass] = useState('bg-white'); // Default background color
+
+  useEffect(() => {
+    // Function to update the background color based on the path
+    const updateBackgroundColor = () => {
+      if (location.pathname === "/") {
+        setBackgroundColorClass('bg-jobPageBlue'); // Set to sky-600 for paths starting with /jobs/
+      } else if (location.pathname.startsWith("/jobs" || location.pathname === "/addJob")) {
+        setBackgroundColorClass('bg-sky-600');
+      } else if (location.pathname === "/login" || location.pathname === "/signup") {
+        setBackgroundColorClass('bg-white')
+      }
+    };
+
+    updateBackgroundColor();
+  }, [location.pathname]); // Dependency array with pathname
+
   return (
-    <footer className=" bg-white text-black text-center mt-2 p-4">
+    <footer className={`${backgroundColorClass} text-black text-center  p-4`}>
       <div className="container mx-auto">
         <p className="text-sm">
           &copy; {new Date().getFullYear()} EmployEase
