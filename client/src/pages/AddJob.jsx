@@ -65,7 +65,7 @@ const JobForm = () => {
       </div>
       <div className="mx-auto max-w-2xl text-center">
         <h2 className="text-3xl font-bold tracking-tight text-slate-100 sm:text-4xl">Add A Job</h2>
-        <p className="mt-2 text-lg leading-8 text-slate-100">
+        <p className="mt-2 text-xl leading-8 text-slate-100">
           Please enter the details of the Job below to add it to your Job Board!
         </p>
       </div>
@@ -73,7 +73,7 @@ const JobForm = () => {
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 bg-slate-400 p-3 rounded-md sm:grid-cols-2">
           <FormInput
             formId="jobTitle"
-            title="Job Title"
+            title="Job Title:"
             value={formState.jobTitle}
             onChange={handleFormChange}
             placeholder='Enter the Job Title you are applying for here'
@@ -82,7 +82,7 @@ const JobForm = () => {
           />
           <FormInput
             formId="salary"
-            title="Salary"
+            title="Salary:"
             value={formState.salary}
             onChange={handleFormChange}
             placeholder='Enter your hourly wage or Salary here'
@@ -91,7 +91,7 @@ const JobForm = () => {
           />
           <FormInput
             formId="companyName"
-            title="Company"
+            title="Company:"
             value={formState.companyName}
             onChange={handleFormChange}
             placeholder='Enter the name of the Company you are applying to'
@@ -109,7 +109,7 @@ const JobForm = () => {
           />
           <FormInput
             formId="description"
-            title="Job Description"
+            title="Job Description:"
             value={formState.description}
             onChange={handleFormChange}
             placeholder='Enter a job description'
@@ -118,7 +118,7 @@ const JobForm = () => {
           />
           <FormInput
             formId="jobLink"
-            title="Website used to find Job Listing"
+            title="Link to Job Listing:"
             value={formState.jobLink}
             onChange={handleFormChange}
             placeholder='Where did you discover this job listing?'
@@ -128,7 +128,7 @@ const JobForm = () => {
           <FormInput
             type='date'
             formId="appliedOn"
-            title="Applied On"
+            title="Applied On:"
             value={formState.appliedOn}
             onChange={handleFormChange}
             labelClasses="block text-sm font-semibold leading-6 text-gray-900"
@@ -190,9 +190,9 @@ const JobForm = () => {
         <div className="mt-10">
           <button
             type="submit"
-            className="block w-full rounded-md bg-green-500 px-3.5 py-2.5 text-center text-sm font-semibold text-black shadow-sm hover:bg-green-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500"
+            className="block w-full rounded-md bg-green-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-green-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500"
           >
-            <span>Add to Jobs!</span>
+            <span className='text-lg'>Add to Jobs!</span>
           </button>
         </div>
       </form>
