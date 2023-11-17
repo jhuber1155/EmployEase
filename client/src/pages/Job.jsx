@@ -20,11 +20,11 @@ const Job = () => {
 
     if (Auth.loggedIn()) {
         return (
-            <main>
+            <main className='bg-gradient-to-t from-sky-600 to-sky-300 h-screen'>
                 {loading ? (
                     <div>Loading...</div>
                 ) : (
-                    <div className='mt-5'>
+                    <div className='pt-5'>
                         <div className="bg-slate-200 max-w-2xl mx-auto mb-3 rounded-md p-8 shadow-md sm:flex justify-between">
                             <div>
                                 <h2 className="text-2xl font-semibold mb-2">{job.jobTitle}</h2>
@@ -47,7 +47,7 @@ const Job = () => {
                                 <Link to="/">
                                     <div className='flex'>
                                         Home
-                                        <FaHome className='ml-2'/>
+                                        <FaHome className='ml-2 mt-1'/>
                                     </div>
                                 </Link>
                             </button>
