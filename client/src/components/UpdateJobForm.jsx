@@ -106,7 +106,7 @@ const UpdateJobForm = ({ job }) => {
                 {formState.interviewOffered ? "Interviewing" : "Pending Interview"}
             </button>
 
-            <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md self-center">
+            <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-md self-center">
                 Save Changes
             </button>
         </form>
