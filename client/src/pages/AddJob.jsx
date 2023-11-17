@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth'
 import { ADD_JOB } from '../utils/mutations';
 import FormInput from '../components/FormInput';
-import ToggleInput from '../components/ToggleInput';
+import FormToggle from '../components/FormToggle';
 
 const JobForm = () => {
 
@@ -135,7 +135,7 @@ const JobForm = () => {
             inputClasses="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
           />
           <div>
-            <ToggleInput
+            <FormToggle
               formId="fullTime"
               title="Full Time or Part Time:"
               options={[
@@ -150,7 +150,7 @@ const JobForm = () => {
                 "bg-yellow-300 text-gray-700 font-bold px-4 py-2 rounded-md mr-2 mb-4 md:w-4/12"
               ]}
             />
-            <ToggleInput
+            <FormToggle
               formId="interviewOffered"
               title="Click to toggle interview status:"
               options={[
