@@ -11,7 +11,9 @@ const Footer = () => {
     const updateBackgroundColor = () => {
       if (location.pathname === "/") {
         setBackgroundColorClass('bg-jobPageBlue'); // Set to sky-600 for paths starting with /jobs/
-      } else if (location.pathname.startsWith("/jobs" || location.pathname === "/addJob")) {
+      } else if (location.pathname.startsWith("/jobs")) {
+        setBackgroundColorClass('bg-sky-600');
+      } else if (location.pathname === "/addJob"){
         setBackgroundColorClass('bg-sky-600');
       } else if (location.pathname === "/login" || location.pathname === "/signup") {
         setBackgroundColorClass('bg-white')
