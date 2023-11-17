@@ -111,40 +111,42 @@ const JobBoard = ({ jobs }) => {
   }
 
   return (
-    <div id='trelloContainer'>
-      <Board
-        data={data} 
-        onCardClick={function goToJob(cardId) {
-          window.location.assign(`/jobs/${cardId}`);
-        }}
-        onCardMoveAcrossLanes={async function updateStatus(fromLaneId, toLaneId, cardId, index) {
-          if (fromLaneId !== toLaneId) {
+    <>
+      <div id='trelloContainer'>
+        <Board
+          data={data}
+          onCardClick={function goToJob(cardId) {
+            window.location.assign(`/jobs/${cardId}`);
+          }}
+          onCardMoveAcrossLanes={async function updateStatus(fromLaneId, toLaneId, cardId, index) {
+            if (fromLaneId !== toLaneId) {
+              try {
+                await updateJob({
+                  variables: {
+                    jobId: cardId,
+                    status: toLaneId
+                  }
+                })
+              } catch (err) {
+                console.error(err);
+              }
+            }
+          }}
+          onCardDelete={function handleDelete(cardId) {
             try {
-              await updateJob({
+              deleteJob({
                 variables: {
-                  jobId: cardId,
-                  status: toLaneId
+                  jobId: cardId
                 }
-              })
+              });
+              window.location.reload(false)
             } catch (err) {
               console.error(err);
             }
-          }
-        }}
-        onCardDelete={function handleDelete(cardId){
-          try {
-            deleteJob({
-              variables: {
-                jobId: cardId
-              }
-            });
-            window.location.reload(false)
-          } catch (err) {
-            console.error(err);
-          }
-        }}
-      />
-    </div>
+          }}
+        />
+      </div>
+    </>
   )
 }
 
