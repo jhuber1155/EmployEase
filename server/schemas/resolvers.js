@@ -106,6 +106,7 @@ const resolvers = {
           {
             salary: args.salary,
             interviewOffered: args.interviewOffered,
+            description: args.description,
             status: args.status
           },
           { new: true }

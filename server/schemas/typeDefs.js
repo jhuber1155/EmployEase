@@ -31,7 +31,7 @@ const typeDefs = `
     login(email: String!, password: String!): Auth
     addJob(userId: ID!, jobTitle: String!, salary: String!, location: String, fullTime: Boolean, companyName: String, description: String, jobLink: String, appliedOn: String, interviewOffered: Boolean, status: String): Job
     deleteJob(jobId: ID!): Job
-    updateJob(jobId: ID!, salary: String, location: String, fullTime: Boolean, interviewOffered: Boolean, status: String): Job
+    updateJob(jobId: ID!, salary: String, location: String, fullTime: Boolean, description: String, interviewOffered: Boolean, status: String): Job
   }
 
   type Query {
