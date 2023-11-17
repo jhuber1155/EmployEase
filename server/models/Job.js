@@ -3,36 +3,44 @@ const dateFormat = require('../utils/dateformat')
 
 const jobSchema = new Schema({
   jobTitle: {
-    type: String
+    type: String,
+    required: true,
+    trim: true
   },
   salary: {
-    type: String
+    type: String,
+    trim: true
   },
   companyName: {
-    type: String
+    type: String,
+    trim: true
   },
   description: {
-    type: String
+    type: String,
+    trim: true
   },
   jobLink: {
-    type: String
+    type: String,
+    trim: true
   },
   location: {
-    type: String
+    type: String,
+    default: 'Remote'
   },
   fullTime: {
-    type: Boolean
+    type: Boolean,
   }, 
   appliedOn: {
     type: Date,
-    default: Date.now,
+    default: Date.now(),
     get: (date) => dateFormat(date)
   },
   interviewOffered: {
-    type: Boolean
+    type: Boolean,
   },
   status: {
-    type: String
+    type: String,
+    default: 'Open'
   }
 });
 
