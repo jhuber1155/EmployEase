@@ -77,6 +77,7 @@ const JobBoard = ({ jobs }) => {
         label: `${open.length}/${jobs.length}`, //label is jobs in lane/total jobs
         cards: open,
         style: {
+          backgroundColor: '#94a3b8',
           boxShadow: '2px 2px 4px 0px rgba(0,0,0,0.75)',
           color: '#fff',
         },
