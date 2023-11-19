@@ -3,6 +3,7 @@ import { QUERY_ME } from '../utils/queries';
 import JobBoard from '../components/JobBoard.jsx';
 import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
+import { MapContainer, TileLayer } from "react-leaflet"
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_ME);
@@ -13,7 +14,15 @@ const Home = () => {
         {loading ? (
           <div>Loading...</div>
         ) : (
-          <JobBoard jobs={jobs} />
+          <>
+            <JobBoard jobs={jobs} />
+            <MapContainer center={[-118.37630726416945, 33.964051807995936]} zoom={13}>
+              <TileLayer
+                attribution='© OpenStreetMap contributors'
+                url='https://tile.openstreetmap.org/{z}/{x}/{y}.png'
+              />
+            </MapContainer>
+          </>
         )}
       </main>
     )
