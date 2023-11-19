@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* map sizing */
+.leaflet-container {
+    height: 100vh;
+}
+
 .sc-jrAGKZ > div > div > article{
     min-width: 300px;
 }
