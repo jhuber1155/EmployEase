@@ -3,6 +3,7 @@ import { QUERY_ME } from '../utils/queries';
 import JobBoard from '../components/JobBoard.jsx';
 import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
+import Map from '../components/Map.jsx';
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_ME);
@@ -13,7 +14,10 @@ const Home = () => {
         {loading ? (
           <div>Loading...</div>
         ) : (
-          <JobBoard jobs={jobs} />
+          <div id="homeContainer" className='flex'>
+            <JobBoard jobs={jobs} />
+            <Map jobs={jobs} />
+          </div>
         )}
       </main>
     )
