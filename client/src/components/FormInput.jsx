@@ -1,4 +1,4 @@
-const FormInput = ({ type = 'text', formId, title, value, onChange, placeholder = "Enter Text Here", containerClasses = "sm:col-span-2", labelClasses, inputClasses }) => {
+const FormInput = ({ type = 'text', formId, title, value, onChange, placeholder = "Enter Text Here", containerClasses = "col-span-2 md:col-span-1", labelClasses, inputClasses }) => {
 
 
   const handleChange = (event) => {
