@@ -21,7 +21,7 @@ const Job = () => {
 
     if (Auth.loggedIn()) {
         return (
-            <main className='bg-gradient-to-t from-sky-600 to-sky-300 pb-5'>
+            <main className='bg-gradient-to-t from-sky-600 to-sky-300 pb-5 h-screen'>
                 {loading ? (
                     <div>Loading...</div>
                 ) : (
