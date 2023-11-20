@@ -5,9 +5,12 @@ import UpdateJobForm from '../components/UpdateJobForm';
 import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
 import { FaHome } from "react-icons/fa";
+import { useState } from 'react';
 
 const Job = () => {
     const { jobId } = useParams();
+
+    const [showModal, setShowModal] = useState(false);
 
     const { loading, data } = useQuery(QUERY_JOB, {
         variables: { jobId: jobId },
@@ -39,13 +42,30 @@ const Job = () => {
                                 <a className="text-blue-500" href={job.jobLink}>Job Link</a>
                             </div>
                         </div>
-                        <UpdateJobForm job={job} />
+
+                        <div className='text-center'>
+                            <button
+                                className="bg-blue-200 text-black active:bg-blue-500 
+      font-bold px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+                                type="button"
+                                onClick={() => setShowModal(true)}
+                            >
+                                Edit Job
+                            </button>
+                        </div>
+
+                        {showModal ? (
+                            <div className="items-center justify-around m-20 fixed inset-0 z-50 outline-none focus:outline-none">
+                                <UpdateJobForm job={job} setShowModal={setShowModal} />
+                            </div>
+                        ) : null}
+
                         <div className='text-center mt-5'>
                             <button className='bg-gray-400 hover:bg-gray-700 text-white px-4 py-2 rounded-md'>
                                 <Link to="/">
                                     <div className='flex'>
                                         Home
-                                        <FaHome className='ml-2 mt-1'/>
+                                        <FaHome className='ml-2 mt-1' />
                                     </div>
                                 </Link>
                             </button>
