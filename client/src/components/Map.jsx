@@ -37,7 +37,7 @@ function Map( {jobs}) {
 
     return (
         <div>
-            <MapContainer center={[34.0469, -118.232]} zoom={5}>
+            <MapContainer center={[34.0469, -114.732]} zoom={8}>
                 <TileLayer
                     attribution='© OpenStreetMap contributors'
                     url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'

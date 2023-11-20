@@ -14,7 +14,7 @@ const Home = () => {
         {loading ? (
           <div>Loading...</div>
         ) : (
-          <div className='flex flex-col'>
+          <div id="homeContainer" className='flex'>
             <JobBoard jobs={jobs} />
             <Map jobs={jobs} />
           </div>

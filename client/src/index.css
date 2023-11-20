@@ -5,11 +5,15 @@
 /* map sizing */
 .leaflet-container {
     height: 50vh;
-    width: 75%;
+    
     margin: auto;
 }
 
+
+
 div:has(> .leaflet-container) {
+    padding: 40px;
+    width: 100%;
     background-color: #3179ba;
 }
 
@@ -18,7 +22,7 @@ div:has(> .leaflet-container) {
 }
 
 
-@media (max-width: 1100px){
+@media (max-width: 1300px){
     #trelloContainer > div > div > div > section{
         width: 100%;
         flex-direction: column;
@@ -31,5 +35,11 @@ div:has(> .leaflet-container) {
     .leaflet-container {
         height: 50vh;
         width: 100%;
+    }
+}
+
+@media (max-width: 800px){
+    #homeContainer{
+        display: block;
     }
 }
