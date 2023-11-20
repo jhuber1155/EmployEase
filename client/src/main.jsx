@@ -9,6 +9,7 @@ import Job from './pages/Job.jsx'
 
 import App from './App.jsx'
 import './index.css'
+import "leaflet/dist/leaflet.css"
 
 const router = createBrowserRouter([
   {
