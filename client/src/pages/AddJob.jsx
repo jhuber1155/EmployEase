@@ -115,12 +115,12 @@ const JobForm = () => {
           />
           <FormInput
             formId="location"
-            title="Location"
+            title="Address (Must include Street Number, City, State, and Zip Code):"
             value={formState.location}
             onChange={handleFormChange}
-            placeholder='Where is This Job Located?'
-            labelClasses={labelStyling}
-            inputClasses={inputStyling}
+            placeholder='123 Main Street, Your City, Your State, 12345'
+            labelClasses= {labelStyling}
+            inputClasses= {inputStyling}
           />
           <FormInput
             formId="description"
