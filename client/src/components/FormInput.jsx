@@ -7,7 +7,9 @@ const FormInput = ({ type = 'text', formId, title, value, onChange, placeholder 
   }
 
   return (
-    <div className={containerClasses}>
+    <div 
+      className={containerClasses}
+    >
       <label htmlFor={formId} className={labelClasses}>
         {title}
       </label>

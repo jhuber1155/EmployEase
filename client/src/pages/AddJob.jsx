@@ -4,20 +4,16 @@ import Auth from '../utils/auth'
 import { ADD_JOB } from '../utils/mutations';
 import FormInput from '../components/FormInput';
 import FormToggle from '../components/FormToggle';
-import { checkText } from '../utils/helpers';
-
 const JobForm = () => {
+
+  const inputStyling = "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6";
+  const inputStylingWithError = "block w-full rounded-md border-0 px-3.5 py-2 text-red-600 shadow-sm ring-1 ring-inset ring-red-700 placeholder:text-red-600 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6";
+  const labelStyling = "block text-sm font-semibold leading-6 text-gray-900";
+  const labelStylingWithError = "block text-sm font-semibold leading-6 text-red-700";
+  
   const [errorMessage, setErrorMessage] = useState({
     jobTitle: '',
     salary: '',
-    companyName: '',
-    location: '',
-    fullTime: false,
-    description: '',
-    jobLink: '',
-    appliedOn: new Date().toISOString().substring(0,10),
-    status: 'Open',
-    interviewOffered: false,
   });
 
   const [formState, setFormState] = useState({
@@ -28,34 +24,37 @@ const JobForm = () => {
     fullTime: false,
     description: '',
     jobLink: '',
-    appliedOn: new Date().toISOString().substring(0,10),
+    appliedOn: new Date().toISOString().substring(0, 10),
     status: 'Open',
     interviewOffered: false,
   });
-
-  useEffect(() =>{
-    console.log(errorMessage)
-  }, [errorMessage])
 
   const [addJob, { error }] = useMutation(ADD_JOB)
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-      let error=false
-      const errorTemp = {...errorMessage}
-    if (formState.jobTitle=="") {
-        errorTemp.jobTitle= `Please fill out a Job Title.`;
-        error = true
-      }
+    let error = false
+    const errorTemp = { ...errorMessage }
+    if (formState.jobTitle == "") {
+      errorTemp.jobTitle = `Please fill out a Job Title.`;
+      error = true
+    }
 
-      if (formState.salary=="") {
-        errorTemp.salary= `Please fill out a salary amount.`;
-        error = true
-      }
-      
-      if (error){
+    if (formState.salary == "") {
+      errorTemp.salary = `Please fill out a salary amount.`;
+      error = true
+    }
+
+    if (error) {
+      setErrorMessage(errorTemp)
+      // Removes error message after any input is entered for some reason
+      setTimeout(() => {
+        errorTemp.jobTitle = ''
+        errorTemp.salary = ''
         setErrorMessage(errorTemp)
-        return } 
+      }, 1)
+      return
+    }
     try {
       const { data } = await addJob({
         variables: {
@@ -77,19 +76,7 @@ const JobForm = () => {
   }
 
   return (
-    <div className="isolate bg-gradient-to-t from-sky-600 to-sky-300 px-6 py-24 sm:py-32 lg:px-8">
-      <div
-        className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
-        aria-hidden="true"
-      >
-        <div
-          className="relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg]"
-          style={{
-            clipPath:
-              'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-          }}
-        />
-      </div>
+    <div className="isolate bg-gradient-to-t from-sky-600 to-sky-300 px-6 py-5 md:py-15 lg:px-8">
       <div className="mx-auto max-w-2xl text-center">
         <h2 className="text-3xl font-bold tracking-tight text-slate-100 sm:text-4xl">Add A Job</h2>
         <p className="mt-2 text-xl leading-8 text-slate-100">
@@ -98,35 +85,33 @@ const JobForm = () => {
       </div>
       <form action="#" method="POST" className="mx-auto mt-16 max-w-xl sm:mt-20" onSubmit={handleFormSubmit}>
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 bg-slate-400 p-3 rounded-md sm:grid-cols-2">
-          <FormInput 
+          <FormInput
             required={true}
             formId="jobTitle"
-            title="Job Title:"
+            title= "Job Title:"
             value={formState.jobTitle}
             onChange={handleFormChange}
-            placeholder='Enter the Job Title you are applying for here'
-            labelClasses="block text-sm font-semibold leading-6 text-gray-900"
-            inputClasses="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            placeholder={errorMessage.jobTitle ? errorMessage.jobTitle : 'Enter the Job Title you are applying for here'}
+            labelClasses={errorMessage.jobTitle ? labelStylingWithError: labelStyling}
+            inputClasses={errorMessage.jobTitle ? inputStylingWithError : inputStyling}
           />
-          <span className="text-red-700">{errorMessage.jobTitle}</span>
           <FormInput required
             formId="salary"
             title="Salary:"
             value={formState.salary}
             onChange={handleFormChange}
-            placeholder='Enter your hourly wage or Salary here'
-            labelClasses="block text-sm font-semibold leading-6 text-gray-900"
-            inputClasses="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            placeholder={errorMessage.salary ? errorMessage.salary :'Enter your hourly wage or Salary here'}
+            labelClasses={errorMessage.salary ? labelStylingWithError: labelStyling}
+            inputClasses={errorMessage.salary ? inputStylingWithError : inputStyling}
           />
-          <span className="text-red-700">{errorMessage.salary}</span>
           <FormInput
             formId="companyName"
             title="Company:"
             value={formState.companyName}
             onChange={handleFormChange}
             placeholder='Enter the name of the Company you are applying to'
-            labelClasses="block text-sm font-semibold leading-6 text-gray-900"
-            inputClasses="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            labelClasses= {labelStyling}
+            inputClasses= {inputStyling}
           />
           <FormInput
             formId="location"
@@ -134,8 +119,8 @@ const JobForm = () => {
             value={formState.location}
             onChange={handleFormChange}
             placeholder='Where will this job be located at?'
-            labelClasses="block text-sm font-semibold leading-6 text-gray-900"
-            inputClasses="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            labelClasses= {labelStyling}
+            inputClasses= {inputStyling}
           />
           <FormInput
             formId="description"
@@ -143,8 +128,8 @@ const JobForm = () => {
             value={formState.description}
             onChange={handleFormChange}
             placeholder='Enter a job description'
-            labelClasses="block text-sm font-semibold leading-6 text-gray-900"
-            inputClasses="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            labelClasses= {labelStyling}
+            inputClasses= {inputStyling}
           />
           <FormInput
             formId="jobLink"
@@ -152,8 +137,8 @@ const JobForm = () => {
             value={formState.jobLink}
             onChange={handleFormChange}
             placeholder='Where did you discover this job listing?'
-            labelClasses="block text-sm font-semibold leading-6 text-gray-900"
-            inputClasses="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            labelClasses= {labelStyling}
+            inputClasses= {inputStyling}
           />
           <FormInput
             type='date'
@@ -161,8 +146,8 @@ const JobForm = () => {
             title="Applied On:"
             value={formState.appliedOn}
             onChange={handleFormChange}
-            labelClasses="block text-sm font-semibold leading-6 text-gray-900"
-            inputClasses="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            labelClasses= {labelStyling}
+            inputClasses= {inputStyling}
           />
           <div>
             <FormToggle
