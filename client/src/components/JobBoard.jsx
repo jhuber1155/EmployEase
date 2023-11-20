@@ -114,6 +114,7 @@ const JobBoard = ({ jobs }) => {
     <>
       <div id='trelloContainer'>
         <Board
+        style={{height: '60vh'}}
           data={data}
           onCardClick={function goToJob(cardId) {
             window.location.assign(`/jobs/${cardId}`);

@@ -4,12 +4,19 @@
 
 /* map sizing */
 .leaflet-container {
-    height: 100vh;
+    height: 50vh;
+    width: 75%;
+    margin: auto;
+}
+
+div:has(> .leaflet-container) {
+    background-color: #3179ba;
 }
 
 .sc-jrAGKZ > div > div > article{
     min-width: 300px;
 }
+
 
 @media (max-width: 1100px){
     #trelloContainer > div > div > div > section{
@@ -20,5 +27,9 @@
     }
     #trelloContainer > div > div {
         flex-wrap: wrap;
+    }
+    .leaflet-container {
+        height: 50vh;
+        width: 100%;
     }
 }

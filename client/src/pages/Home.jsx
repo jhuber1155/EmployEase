@@ -14,10 +14,10 @@ const Home = () => {
         {loading ? (
           <div>Loading...</div>
         ) : (
-          <>
+          <div className='flex flex-col'>
             <JobBoard jobs={jobs} />
-            <Map />
-          </>
+            <Map jobs={jobs} />
+          </div>
         )}
       </main>
     )

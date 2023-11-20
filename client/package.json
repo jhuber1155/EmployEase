@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "@apollo/client": "^3.7.14",
-    
+    "@geoapify/geocoder-autocomplete": "^2.0.1",
+    "@geoapify/react-geocoder-autocomplete": "^2.0.0",
     "bootstrap": "^5.3.2",
+    "geocoder": "^0.2.3",
     "graphql": "^16.6.0",
     "jwt-decode": "^3.1.2",
     "leaflet": "^1.9.4",
