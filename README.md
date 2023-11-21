@@ -30,6 +30,8 @@ EmployEase strives to make your job application and interview process as painles
 
 ## Installation
 
+Navigate to the deployed Heroku page here: 
+
 ## Usage
 The first step to using our program is to sign up on our login page and create a username and password to access the homepage.
 
@@ -68,9 +70,33 @@ We scale with your needs, and we are where you need us, when you need us!
 
 ## Features
 
+Some of the features we would like to highlight include how the Trello Board code operates in the background. We were able to successfully implement a form input component which dynamically updates the Trello Board in real time. We also incorporated several toggle elements in our forms to allow for DRY coding best practices. The other major feature we included was the Leaflet.js mapping ability which updates in real time with the corresponding job titles and locations, making for quick and easy reference for the users. We were able to accomplish this by grabbing and converting the address input via geocode API calls and convert them into tile positions relative to OpenStreetMaps mapping system. This location coding also allowed us to create responsive pins for our users which contain the job title which they applied for at their future employers location.
+
+Other features we wanted to shine a light on were the dynamic header and footer components which travel with you as you traverse the website. On our Update Job page, we incorporated a Modal in order to keep the relevant information you need to reference in the background, but still allows you to add or update with new or changed information.
+
 ## Credits
+
+We would like to thank the UCLA Bootcamp and their instructional staff in helping us learn and grow in our coding development.
+
+Alejandro AO - React Leaflet Tutorial - https://www.youtube.com/watch?v=jD6813wGdBA
+
+Documentation:
+
+Leaflet - https://leafletjs.com/reference.html
+react-trello - https://www.npmjs.com/package/react-trello
+Tailwind CSS - https://tailwindcss.com/
+Tailwind CSS Spinner - https://flowbite.com/docs/components/spinner/
+
+
+
 
 ## License
 
+Copyright 2023 EmployEase
 
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
