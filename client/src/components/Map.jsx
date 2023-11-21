@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-const icon = L.icon({ iconUrl: "/images/marker-icon.png" });
+import { L } from 'leaflet';
+const icon = L.icon({ iconUrl: "../assets/images/marker-icon.png" });
 
 function Map( {jobs}) {
     const [markers, setMarkers] = useState([]);
