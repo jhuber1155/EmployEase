@@ -32,11 +32,6 @@ function Map( {jobs}) {
         geocodeAddresses(addresses);
     }, []);
 
-    const customIcon = new Icon({
-        iconURL: "https://www.flaticon.com/free-icon/new_10829235?term=map+arrow&page=1&position=2&origin=search&related_id=10829235",
-        iconSize: [38,38]
-    });
-
     return (
         <div>
             <MapContainer center={[34.0469, -114.732]} zoom={8}>
@@ -46,7 +41,7 @@ function Map( {jobs}) {
                 />
                 {/* Render markers based on the positions in the markers array */}
                 {markers.map((marker, index) => (
-                    <Marker key={index} icon={customIcon} position={marker?.position || [0, 0]} >
+                    <Marker key={index} icon={ Icon } position={marker?.position || [0, 0]} >
                         <Popup>{marker?.address.title || 'Unknown Address'}</Popup>
                     </Marker>
                 ))}
