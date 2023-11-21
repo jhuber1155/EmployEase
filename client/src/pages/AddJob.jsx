@@ -21,6 +21,7 @@ const JobForm = () => {
     salary: '',
     companyName: '',
     location: '',
+    isRemote: false,
     fullTime: false,
     description: '',
     jobLink: '',
@@ -115,13 +116,24 @@ const JobForm = () => {
           />
           <FormInput
             formId="location"
-            title="Address (Must include Street Number, City, State, and Zip Code):"
+            title="Address:"
             value={formState.location}
             onChange={handleFormChange}
             placeholder='123 Main Street, Your City, Your State, 12345'
             labelClasses= {labelStyling}
             inputClasses= {inputStyling}
           />
+          <div>
+            <input 
+              type="checkbox" 
+              id="isRemote" 
+              value={formState.isRemote} 
+              onChange={() => 
+                formState.isRemote ? setFormState({ ...formState, ["isRemote"]: false })
+                 : setFormState({ ...formState, ["isRemote"]: true })}
+            />
+            <label htmlFor="isRemote">This Position is Remote</label>
+          </div>
           <FormInput
             formId="description"
             title="Job Description:"
@@ -161,8 +173,8 @@ const JobForm = () => {
             onChange={handleFormChange}
             labelClasses={labelStyling}
             inputClassesOptions={[
-              "bg-green-300 text-gray-700 font-bold px-4 py-2 rounded-md mx-2 mb-4 md:w-6/12 lg:w-6/12",
-              "bg-yellow-300 text-gray-700 font-bold px-4 py-2 rounded-md mx-2 mb-4 md:w-6/12 lg:w-6/12"
+              "bg-green-300 text-gray-700 font-bold px-4 py-2 rounded-md mx-2 md:w-6/12 lg:w-6/12",
+              "bg-yellow-300 text-gray-700 font-bold px-4 py-2 rounded-md mx-2 md:w-6/12 lg:w-6/12"
             ]}
           />
           <FormToggle
@@ -176,8 +188,8 @@ const JobForm = () => {
             onChange={handleFormChange}
             labelClasses={labelStyling}
             inputClassesOptions={[
-              "bg-green-300 text-gray-700 font-bold px-4 py-2 rounded-md mx-2",
-              "bg-yellow-300 text-gray-700 font-bold px-4 py-2 rounded-md mx-2 mb-4 md:w-12/12 lg:w-12/12"
+              "bg-green-300 text-gray-700 font-bold px-4 py-2 rounded-md mx-2 md:w-12/12 lg:w-12/12",
+              "bg-yellow-300 text-gray-700 font-bold px-4 py-2 rounded-md mx-2 md:w-12/12 lg:w-12/12"
             ]}
           />
           <FormInput

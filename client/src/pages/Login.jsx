@@ -60,7 +60,7 @@ const Login = (props) => {
                             <div className="mb-4">
                                 <input
                                     className="appearance-none block w-full px-3 py-2 border bg-slate-100 border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none sm:text-sm"
-                                    placeholder="******"
+                                    placeholder="*********"
                                     name="password"
                                     type="password"
                                     value={formState.password}

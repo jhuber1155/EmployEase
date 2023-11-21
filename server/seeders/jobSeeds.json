@@ -6,7 +6,8 @@
         "salary": "$55,000 - $100,000",
         "jobLink": "https://www.indeed.com",
         "appliedOn": "11/09/2023",
-        "location": "Remote",
+        "location": "999 Bishop Street, Honolulu, HI 96813",
+        "isRemote": true,
         "fullTime": true,
         "interviewOffered": true,
         "status": "Accepted" 
@@ -19,6 +20,7 @@
         "jobLink": "https://www.nba.com/clippers/company/careers/openposition?4301015006&gh_jid=4301015006",
         "appliedOn": "10/28/2023",
         "location": "111 S Figueroa Street, Los Angeles, CA 90015",
+        "isRemote": false,
         "fullTime": false,
         "interviewOffered": false,
         "status": "Open"
@@ -30,7 +32,8 @@
         "salary": "$45/hour",
         "jobLink": "https://www.glassdoor.com",
         "appliedOn": "09/12/2023",
-        "location": "Remote",
+        "location": "563 Kamoku Street, Honolulu, HI 96826",
+        "isRemote": true,
         "fullTime": true,
         "interviewOffered": true,
         "status": "Open" 
@@ -43,6 +46,7 @@
         "jobLink": "https://www.monster.com",
         "appliedOn": "11/01/2023",
         "location": "25 Madison Ave, New York, NY 10010",
+        "isRemote": false,
         "fullTime": true,
         "interviewOffered": false,
         "status": "Rejected" 
@@ -54,7 +58,8 @@
         "salary": "$67,000",
         "jobLink": "https://www.linkedin.com/jobs/view/junior-frontend-engineer-javascript-html-css-at-fitness-matrix-inc-3763676883?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
         "appliedOn": "11/02/2023",
-        "location": "Remote",
+        "location": "2339 Kamehameha Hwy Honolulu HI 96819",
+        "isRemote": true,
         "fullTime": true,
         "interviewOffered": true,
         "status": "Accepted" 
@@ -67,6 +72,7 @@
         "jobLink": "https://unique-jobs.us/joblistings/virta-health/california/backend-web-developer-6541139e709a3204c521bcdb?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
         "appliedOn": "11/14/2023",
         "location": "201 California St #1300, San Francisco, CA 94111",
+        "isRemote": false,
         "fullTime": true,
         "interviewOffered": false,
         "status": "Open" 
