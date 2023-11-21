@@ -32,6 +32,11 @@ function Map( {jobs}) {
         geocodeAddresses(addresses);
     }, []);
 
+    const customIcon = new Icon({
+        iconURL: "/marker-icon.png",
+        iconSize: [38,38]
+    });
+
     return (
         <div>
             <MapContainer center={[34.0469, -114.732]} zoom={8}>
@@ -41,7 +46,7 @@ function Map( {jobs}) {
                 />
                 {/* Render markers based on the positions in the markers array */}
                 {markers.map((marker, index) => (
-                    <Marker key={index} icon={ Icon } position={marker?.position || [0, 0]} >
+                    <Marker key={index} position={marker?.position || [0, 0]} icon={customIcon}>
                         <Popup>{marker?.address.title || 'Unknown Address'}</Popup>
                     </Marker>
                 ))}
