@@ -50,7 +50,7 @@ function Map( {jobs}) {
                 />
                 {/* Render markers based on the positions in the markers array */}
                 {markers.map((marker, index) => (
-                    <Marker key={index} position={marker?.position || [0, 0]}>
+                    <Marker key={index} position={marker?.position || [0, 0]} icon={DefaultIcon}>
                         <Popup>{marker?.address.title || 'Unknown Address'}</Popup>
                     </Marker>
                 ))}
