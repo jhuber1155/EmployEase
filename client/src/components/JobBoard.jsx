@@ -21,7 +21,7 @@ const JobBoard = ({ jobs }) => {
     const jobData = {
       id: id,
       title: jobTitle,
-      description: `Company: ${companyName}\nDescription: ${description}\nAddress: ${location}`,
+      description: `Company: ${companyName}\nDescription: ${description}\n${isRemote ? "Address: " + location: ""}`,
       url: jobLink,
       label: appliedOn,
       tags: [
