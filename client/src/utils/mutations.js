@@ -32,6 +32,7 @@ export const ADD_JOB = gql`
     $jobTitle: String!
     $salary: String!
     $location: String
+    $isRemote: Boolean
     $fullTime: Boolean
     $companyName: String
     $description: String
@@ -45,6 +46,7 @@ export const ADD_JOB = gql`
       jobTitle: $jobTitle
       salary: $salary
       location: $location
+      isRemote: $isRemote
       fullTime: $fullTime
       companyName: $companyName
       description: $description
@@ -58,6 +60,7 @@ export const ADD_JOB = gql`
       salary
       companyName
       location
+      isRemote
       fullTime
       description
       jobLink

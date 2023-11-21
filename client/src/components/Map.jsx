@@ -28,8 +28,6 @@ function Map( {jobs}) {
     };
 
     const addresses = jobs.map(job => ({ location: job.location, title: job.jobTitle}))
-    console.log(addresses)
-
 
     useEffect(() => {
         geocodeAddresses(addresses);

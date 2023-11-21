@@ -16,13 +16,12 @@ const JobBoard = ({ jobs }) => {
   const open = [];
   const rejected = [];
   const accepted = [];
-
   for (let i = 0; i < jobs.length; i++) {
-    const { id, jobTitle, jobLink, companyName, description, appliedOn, salary, location, fullTime, status } = jobs[i];
+    const { id, jobTitle, jobLink, companyName, description, isRemote, appliedOn, salary, location, fullTime, status } = jobs[i];
     const jobData = {
       id: id,
       title: jobTitle,
-      description: `Company: ${companyName}\nDescription: ${description}`,
+      description: `Company: ${companyName}\nDescription: ${description}\n${isRemote ? "Address: " + location: ""}`,
       url: jobLink,
       label: appliedOn,
       tags: [
@@ -34,7 +33,7 @@ const JobBoard = ({ jobs }) => {
         },
 
         // Remote tag shows in different color than location tag
-        jobs[i].location == "Remote" ? {
+        isRemote ? {
           bgcolor: '#8866BB',
           color: 'white',
           title: 'Remote'

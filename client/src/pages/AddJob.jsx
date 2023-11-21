@@ -21,6 +21,7 @@ const JobForm = () => {
     salary: '',
     companyName: '',
     location: '',
+    isRemote: false,
     fullTime: false,
     description: '',
     jobLink: '',
@@ -113,15 +114,28 @@ const JobForm = () => {
             labelClasses={labelStyling}
             inputClasses={inputStyling}
           />
-          <FormInput
-            formId="location"
-            title="Address (Must include Street Number, City, State, and Zip Code):"
-            value={formState.location}
-            onChange={handleFormChange}
-            placeholder='123 Main Street, Your City, Your State, 12345'
-            labelClasses= {labelStyling}
-            inputClasses= {inputStyling}
-          />
+          <div>
+            <FormInput
+              formId="location"
+              title="Address:"
+              value={formState.location}
+              onChange={handleFormChange}
+              placeholder='123 Main Street, Your City, Your State, 12345'
+              labelClasses={labelStyling}
+              inputClasses={inputStyling}
+            />
+            <div>
+              <input
+                type="checkbox"
+                id="isRemote"
+                value={formState.isRemote}
+                onChange={() =>
+                  formState.isRemote ? setFormState({ ...formState, ["isRemote"]: false })
+                    : setFormState({ ...formState, ["isRemote"]: true })}
+              />
+              <label className="text-sm text-gray-900" htmlFor="isRemote">This Position is Remote</label>
+            </div>
+          </div>
           <FormInput
             formId="description"
             title="Job Description:"
@@ -161,8 +175,8 @@ const JobForm = () => {
             onChange={handleFormChange}
             labelClasses={labelStyling}
             inputClassesOptions={[
-              "bg-green-300 text-gray-700 font-bold px-4 py-2 rounded-md mx-2 mb-4 md:w-6/12 lg:w-6/12",
-              "bg-yellow-300 text-gray-700 font-bold px-4 py-2 rounded-md mx-2 mb-4 md:w-6/12 lg:w-6/12"
+              "bg-green-300 text-gray-700 font-bold px-4 py-2 rounded-md mx-2 md:w-6/12 lg:w-6/12",
+              "bg-yellow-300 text-gray-700 font-bold px-4 py-2 rounded-md mx-2 md:w-6/12 lg:w-6/12"
             ]}
           />
           <FormToggle
@@ -176,8 +190,8 @@ const JobForm = () => {
             onChange={handleFormChange}
             labelClasses={labelStyling}
             inputClassesOptions={[
-              "bg-green-300 text-gray-700 font-bold px-4 py-2 rounded-md mx-2",
-              "bg-yellow-300 text-gray-700 font-bold px-4 py-2 rounded-md mx-2 mb-4 md:w-12/12 lg:w-12/12"
+              "bg-green-300 text-gray-700 font-bold px-4 py-2 rounded-md mx-2 md:w-12/12 lg:w-12/12",
+              "bg-yellow-300 text-gray-700 font-bold px-4 py-2 rounded-md mx-2 md:w-12/12 lg:w-12/12"
             ]}
           />
           <FormInput
@@ -189,14 +203,14 @@ const JobForm = () => {
             labelClasses={labelStyling}
             inputClasses={inputStyling}
           />
-        <div className="mt-10 col-span-2">
-          <button
-            type="submit"
-            className="block w-full rounded-md bg-green-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-green-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500"
-          >
-            <span className='text-lg'>Add to Jobs!</span>
-          </button>
-        </div>
+          <div className="mt-10 col-span-2">
+            <button
+              type="submit"
+              className="block w-full rounded-md bg-green-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-green-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500"
+            >
+              <span className='text-lg'>Add to Jobs!</span>
+            </button>
+          </div>
         </div>
       </form>
     </div>

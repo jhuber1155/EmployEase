@@ -17,7 +17,7 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
-    minlength: 5,
+    minlength: 8,
   },
   jobs: [
     {
@@ -30,7 +30,7 @@ const userSchema = new Schema({
 // set up pre-save middleware to create password
 userSchema.pre('save', async function (next) {
   if (this.isNew || this.isModified('password')) {
-    const saltRounds = 10;
+    const saltRounds = 15;
     this.password = await bcrypt.hash(this.password, saltRounds);
   }
 

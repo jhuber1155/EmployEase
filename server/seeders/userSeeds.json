@@ -2,21 +2,21 @@
     {
         "username": "Brian",
         "email": "b@b.com",
-        "password": "password"
+        "password": "password123"
       },
       {
         "username": "John",
         "email": "j@j.com",
-        "password": "password"
+        "password": "password123"
       },
       {
         "username": "Nathan",
         "email": "n@n.com",
-        "password": "password"
+        "password": "password123"
       },
       {
         "username": "Adam",
         "email": "a@a.com",
-        "password": "password"
+        "password": "password123"
       }
 ]
