@@ -34,6 +34,7 @@ const UpdateJobForm = ({ job, setShowModal = "" }) => {
                     interviewOffered: formState.interviewOffered
                 }
             })
+            window.location.reload(false)
         } catch (err) {
             console.error(err);
         }

@@ -114,7 +114,7 @@ const JobForm = () => {
             labelClasses={labelStyling}
             inputClasses={inputStyling}
           />
-          <div>
+          <div className="col-span-2 md:col-span-1">
             <FormInput
               formId="location"
               title="Address:"
