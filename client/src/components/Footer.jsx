@@ -10,13 +10,13 @@ const Footer = () => {
     // Function to update the background color based on the path
     const updateBackgroundColor = () => {
       if (location.pathname === "/") {
-        setBackgroundColorClass('bg-jobPageBlue'); // Set to sky-600 for paths starting with /jobs/
+        setBackgroundColorClass('bg-jobPageBlue'); 
       } else if (location.pathname.startsWith("/jobs")) {
         setBackgroundColorClass('bg-sky-600');
       } else if (location.pathname === "/addJob"){
         setBackgroundColorClass('bg-sky-600');
       } else if (location.pathname === "/login" || location.pathname === "/signup") {
-        setBackgroundColorClass('bg-white')
+        setBackgroundColorClass('bg-jobPageBlue')
       }
     };
 
