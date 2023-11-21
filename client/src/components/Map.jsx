@@ -1,16 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
-import icon from 'leaflet/dist/images/marker-icon.png';
-import iconShadow from 'leaflet/dist/images/marker-shadow.png';
-
-let DefaultIcon = L.icon({
-    iconUrl: icon,
-    shadowUrl: iconShadow
-});
-
-L.Marker.prototype.options.icon = DefaultIcon;
+import { Icon } from "leaflet";
 
 function Map( {jobs}) {
     const [markers, setMarkers] = useState([]);
@@ -41,6 +31,11 @@ function Map( {jobs}) {
         geocodeAddresses(addresses);
     }, []);
 
+    const customIcon = new Icon({
+        iconURL: "../../public/marker-icon.png",
+        iconSize: [38,38]
+    });
+
     return (
         <div>
             <MapContainer center={[34.0469, -114.732]} zoom={8}>
@@ -50,7 +45,7 @@ function Map( {jobs}) {
                 />
                 {/* Render markers based on the positions in the markers array */}
                 {markers.map((marker, index) => (
-                    <Marker key={index} position={marker?.position || [0, 0]} icon={DefaultIcon}>
+                    <Marker key={index} position={marker?.position || [0, 0]} icon={customIcon}>
                         <Popup>{marker?.address.title || 'Unknown Address'}</Popup>
                     </Marker>
                 ))}
