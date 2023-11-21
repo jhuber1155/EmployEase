@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
-
 function Map( {jobs}) {
     const [markers, setMarkers] = useState([]);
     // Function to geocode addresses and update markers
@@ -10,7 +9,6 @@ function Map( {jobs}) {
             try {
                 const response = await fetch(`https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(address.location)}&lang=en&limit=10&type=city&apiKey=${import.meta.env.VITE_KEY}
                 `);
-                
                 const data = await response.json();
 
                 if (data.features && data.features.length > 0) {
@@ -18,16 +16,16 @@ function Map( {jobs}) {
                     return { address, position: [lat, lon] };
                 }
             } catch (error) {
-                console.error(`Error geocoding address '${address.location}':`, error.message);
+                console.error(error.message);
             }
         });
-
+        // add markers to markers array when address api call returns geocode 
         const resolvedMarkers = await Promise.all(geocodePromises);
         setMarkers(resolvedMarkers.filter((marker) => marker !== null));
     };
 
     const addresses = jobs.map(job => ({ location: job.location, title: job.jobTitle}))
-
+    // geocode addresses when added to array 
     useEffect(() => {
         geocodeAddresses(addresses);
     }, []);
@@ -45,7 +43,6 @@ function Map( {jobs}) {
                         <Popup>{marker?.address.title || 'Unknown Address'}</Popup>
                     </Marker>
                 ))}
-
             </MapContainer>
         </div>
     );

@@ -16,7 +16,6 @@ const Job = () => {
         variables: { jobId: jobId },
     });
 
-    // const { jobTitle, companyName, salary, description, location, fullTime, status, appliedOn, interviewOffered, jobLink } = data?.getJob || [];
     const job = data?.getJob || [];
 
     if (Auth.loggedIn()) {

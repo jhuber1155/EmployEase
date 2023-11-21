@@ -8,7 +8,7 @@ import Map from '../components/Map.jsx';
 const Home = () => {
   const { loading, data } = useQuery(QUERY_ME);
   const jobs = data?.me.jobs || [];
-
+// verify user is logged in to display home page
   if (Auth.loggedIn()) {
     return (
       <main>
@@ -17,6 +17,7 @@ const Home = () => {
         ) : (
           <div id="homeContainer" className='flex'>
             <JobBoard jobs={jobs} />
+            {/* display map only if user has added jobs */}
             {jobs.length > 0 ? (
               <Map jobs={jobs} />
             ) : (
@@ -29,7 +30,7 @@ const Home = () => {
       </main>
     );
   }
-
+// display if user is not logged in
   return (
     <div className='flex items-center justify-center h-screen bg-jobPageBlue'>
       <div className='text-center'>
