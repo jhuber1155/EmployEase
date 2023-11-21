@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import "leaflet/dist/leaflet.css";
 import { Icon } from "leaflet";
 
 function Map( {jobs}) {
@@ -32,7 +33,7 @@ function Map( {jobs}) {
     }, []);
 
     const customIcon = new Icon({
-        iconURL: "../../public/marker-icon.png",
+        iconURL: "/marker-icon.png",
         iconSize: [38,38]
     });
 
