@@ -5,7 +5,6 @@
 /* map sizing */
 .leaflet-container {
     height: 50vh;
-    
     margin: auto;
 }
 
@@ -17,29 +16,42 @@ div:has(> .leaflet-container) {
     background-color: #3179ba;
 }
 
-.sc-jrAGKZ > div > div > article{
+.sc-jrAGKZ>div>div>article {
     min-width: 300px;
 }
 
+.sc-jrAGKZ>div>div>article>header>span {
+    width: 100%;
+    display: block;
+}
 
-@media (max-width: 1300px){
-    #trelloContainer > div > div > div > section{
+.sc-jrAGKZ>div>div>article>header {
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+@media (max-width: 1300px) {
+    #trelloContainer>div>div>div>section {
         width: 100%;
         flex-direction: column;
         position: none;
         display: block;
     }
-    #trelloContainer > div > div {
+
+    #trelloContainer>div>div {
         flex-wrap: wrap;
     }
+
     .leaflet-container {
         height: 50vh;
         width: 100%;
     }
 }
 
-@media (max-width: 800px){
-    #homeContainer{
+@media (max-width: 800px) {
+    #homeContainer {
         display: block;
     }
 }
