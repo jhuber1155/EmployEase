@@ -10,7 +10,7 @@ const JobBoard = ({ jobs }) => {
 
   if (!jobs.length) {
     return (
-      <div className='bg-jobPageBlue h-screen w-6/12 text-white text-3xl text-center font-bold'>
+      <div className='bg-jobPageBlue h-screen w-full text-white text-3xl text-center font-bold'>
         <div className='mt-5'>No Jobs Yet!</div>
         </div>
     )
