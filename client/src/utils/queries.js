@@ -8,6 +8,7 @@ query GetJobs {
       salary
       companyName
       location
+      isRemote
       fullTime
       description
       jobLink
@@ -26,6 +27,7 @@ query Query($jobId: ID!) {
       salary
       companyName
       location
+      isRemote
       fullTime
       description
       jobLink
@@ -44,6 +46,7 @@ query GetUsers($userId: ID!) {
       salary
       companyName
       location
+      isRemote
       fullTime
       description
       jobLink
@@ -68,6 +71,7 @@ query me {
         appliedOn
         salary
         location
+        isRemote
         fullTime
         status
       }

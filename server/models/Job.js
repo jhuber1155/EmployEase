@@ -27,6 +27,9 @@ const jobSchema = new Schema({
     type: String,
     default: 'Remote'
   },
+  isRemote: {
+    type: Boolean,
+  },
   fullTime: {
     type: Boolean,
   }, 
