@@ -4,12 +4,14 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 function Map( {jobs}) {
     const [markers, setMarkers] = useState([]);
+    console.log(import.meta.env.VITE_KEY)
+
 
     // Function to geocode addresses and update markers
     const geocodeAddresses = async (addresses) => {
         const geocodePromises = addresses.map(async (address) => {
             try {
-                const response = await fetch(`https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(address.location)}&lang=en&limit=10&type=city&apiKey=13aed61a996b4edc8d7e375b9c6d6a81
+                const response = await fetch(`https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(address.location)}&lang=en&limit=10&type=city&apiKey=${import.meta.env.VITE_KEY}
                 `);
                 
                 const data = await response.json();
