@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { L } from 'leaflet';
+import  L from 'leaflet';
 const icon = L.icon({ iconUrl: "../assets/images/marker-icon.png" });
 
 function Map( {jobs}) {
