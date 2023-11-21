@@ -3,12 +3,18 @@ const { User, Job } = require('../models');
 const userSeeds = require('./userSeeds.json');
 const jobSeeds = require('./jobSeeds.json');
 const cleanDB = require('./cleanDB');
+require('dotenv').config()
+
 
 db.once('open', async () => {
   try {
     await cleanDB('Job', 'jobs');
 
     await cleanDB('User', 'users');
+    
+    for (let i=0; i<userSeeds.length; i++) {
+      userSeeds[i].password = process.env.SEED_PASSWORD
+    }
 
     const users = await User.create(userSeeds);
     console.log(users)
