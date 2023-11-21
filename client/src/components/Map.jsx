@@ -33,7 +33,7 @@ function Map( {jobs}) {
     }, []);
 
     const customIcon = new Icon({
-        iconURL: "/marker-icon.png",
+        iconURL: "https://www.flaticon.com/free-icon/new_10829235?term=map+arrow&page=1&position=2&origin=search&related_id=10829235",
         iconSize: [38,38]
     });
 
@@ -46,7 +46,7 @@ function Map( {jobs}) {
                 />
                 {/* Render markers based on the positions in the markers array */}
                 {markers.map((marker, index) => (
-                    <Marker key={index} position={marker?.position || [0, 0]} icon={customIcon}>
+                    <Marker key={index} icon={customIcon} position={marker?.position || [0, 0]} >
                         <Popup>{marker?.address.title || 'Unknown Address'}</Popup>
                     </Marker>
                 ))}
