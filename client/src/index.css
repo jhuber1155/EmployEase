@@ -2,35 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-/* map sizing */
-.leaflet-container {
-    height: 50vh;
-    margin: auto;
-}
-
-
-
+/* map container styles */
 div:has(> .leaflet-container) {
     padding: 40px;
     width: 100%;
     background-color: #3179ba;
 }
 
+/* map styles */
+.leaflet-container {
+    height: 50vh;
+    margin: auto;
+}
+
+/* job card styles */
 .sc-jrAGKZ>div>div>article {
     min-width: 300px;
 }
 
-.sc-jrAGKZ>div>div>article>header>span {
-    width: 100%;
-    display: block;
-}
-
+/* job card header styles */
 .sc-jrAGKZ>div>div>article>header {
     display: flex;
     flex-direction: column;
 }
 
+/* job card title and date styles */
+.sc-jrAGKZ>div>div>article>header>span {
+    width: 100%;
+    display: block;
+}
 
+/* mobile styles */
 @media (max-width: 1300px) {
     #trelloContainer>div>div>div>section {
         width: 100%;
@@ -42,7 +44,6 @@ div:has(> .leaflet-container) {
     #trelloContainer>div>div {
         flex-wrap: wrap;
     }
-
     .leaflet-container {
         height: 50vh;
         width: 100%;
