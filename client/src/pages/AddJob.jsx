@@ -114,25 +114,27 @@ const JobForm = () => {
             labelClasses={labelStyling}
             inputClasses={inputStyling}
           />
-          <FormInput
-            formId="location"
-            title="Address:"
-            value={formState.location}
-            onChange={handleFormChange}
-            placeholder='123 Main Street, Your City, Your State, 12345'
-            labelClasses= {labelStyling}
-            inputClasses= {inputStyling}
-          />
           <div>
-            <input 
-              type="checkbox" 
-              id="isRemote" 
-              value={formState.isRemote} 
-              onChange={() => 
-                formState.isRemote ? setFormState({ ...formState, ["isRemote"]: false })
-                 : setFormState({ ...formState, ["isRemote"]: true })}
+            <FormInput
+              formId="location"
+              title="Address:"
+              value={formState.location}
+              onChange={handleFormChange}
+              placeholder='123 Main Street, Your City, Your State, 12345'
+              labelClasses={labelStyling}
+              inputClasses={inputStyling}
             />
-            <label htmlFor="isRemote">This Position is Remote</label>
+            <div>
+              <input
+                type="checkbox"
+                id="isRemote"
+                value={formState.isRemote}
+                onChange={() =>
+                  formState.isRemote ? setFormState({ ...formState, ["isRemote"]: false })
+                    : setFormState({ ...formState, ["isRemote"]: true })}
+              />
+              <label className="text-sm text-gray-900" htmlFor="isRemote">This Position is Remote</label>
+            </div>
           </div>
           <FormInput
             formId="description"
@@ -201,14 +203,14 @@ const JobForm = () => {
             labelClasses={labelStyling}
             inputClasses={inputStyling}
           />
-        <div className="mt-10 col-span-2">
-          <button
-            type="submit"
-            className="block w-full rounded-md bg-green-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-green-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500"
-          >
-            <span className='text-lg'>Add to Jobs!</span>
-          </button>
-        </div>
+          <div className="mt-10 col-span-2">
+            <button
+              type="submit"
+              className="block w-full rounded-md bg-green-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-green-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500"
+            >
+              <span className='text-lg'>Add to Jobs!</span>
+            </button>
+          </div>
         </div>
       </form>
     </div>
