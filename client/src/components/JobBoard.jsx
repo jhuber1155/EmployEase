@@ -9,7 +9,11 @@ const JobBoard = ({ jobs }) => {
   const [deleteJob] = useMutation(DELETE_JOB)
 
   if (!jobs.length) {
-    return <h3>No Jobs Yet</h3>
+    return (
+      <div className='bg-jobPageBlue h-screen w-6/12 text-white text-3xl text-center font-bold'>
+        <div className='mt-5'>No Jobs Yet!</div>
+        </div>
+    )
   }
 
   // Create cards for trello lanes

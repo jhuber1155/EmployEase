@@ -26,7 +26,6 @@ div:has(> .leaflet-container) {
 }
 
 .sc-jrAGKZ>div>div>article>header {
-
     display: flex;
     flex-direction: column;
 }
@@ -53,5 +52,6 @@ div:has(> .leaflet-container) {
 @media (max-width: 800px) {
     #homeContainer {
         display: block;
+        background: #3179ba;
     }
 }
