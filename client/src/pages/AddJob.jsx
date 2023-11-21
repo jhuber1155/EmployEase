@@ -15,7 +15,7 @@ const JobForm = () => {
     jobTitle: '',
     salary: '',
   });
-
+  // default form input values
   const [formState, setFormState] = useState({
     jobTitle: '',
     salary: '',
@@ -31,7 +31,7 @@ const JobForm = () => {
   });
 
   const [addJob, { error }] = useMutation(ADD_JOB)
-
+  // call add job mutation on form submit
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     let error = false
