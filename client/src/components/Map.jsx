@@ -4,9 +4,6 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 function Map( {jobs}) {
     const [markers, setMarkers] = useState([]);
-    console.log(import.meta.env.VITE_KEY)
-
-
     // Function to geocode addresses and update markers
     const geocodeAddresses = async (addresses) => {
         const geocodePromises = addresses.map(async (address) => {
