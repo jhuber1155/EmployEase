@@ -8,9 +8,6 @@ import icon from 'leaflet/dist/images/marker-icon.png';
 import icon2x from "leaflet/dist/images/marker-icon-2x.png";
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
-
-
-
 function Map({ jobs }) {
     const [markers, setMarkers] = useState([]);
     // Function to geocode addresses and update markers
@@ -50,8 +47,6 @@ function Map({ jobs }) {
         tooltipAnchor: [16, -28],
         shadowSize: [41, 41],
     });
-
-    console.log(DefaultIcon)
 
     return (
         <div>
