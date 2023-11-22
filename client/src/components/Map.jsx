@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import "leaflet/dist/leaflet.css";
-// import { Icon } from "leaflet";
+import { Icon } from "leaflet";
 
 function Map( {jobs}) {
     const [markers, setMarkers] = useState([]);
@@ -36,6 +36,20 @@ function Map( {jobs}) {
     //     iconURL: "/assets/images/marker-icon.png",
     //     iconSize: [38,38]
     // });
+    const iconRetinaUrl = 'assets/images/marker-icon-2x.png';
+    const iconUrl = 'assets/images/marker-icon.png';
+    const shadowUrl = 'assets/images/marker-shadow.png';
+    const iconDefault = icon({
+        iconRetinaUrl,
+        iconUrl,
+        shadowUrl,
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        tooltipAnchor: [16, -28],
+        shadowSize: [41, 41]
+    });
+        Marker.prototype.options.icon = iconDefault;
 
     return (
         <div>
