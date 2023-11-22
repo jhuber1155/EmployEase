@@ -5,7 +5,7 @@ import "leaflet/dist/leaflet.css";
 import L from 'leaflet';
 
 import icon from '/assets/images/layers.png';
-import icon2x from "/assets/images/layers2.png";
+import icon2x from "/assets/images/layers-2x.png";
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
 function Map({ jobs }) {
