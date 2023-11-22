@@ -1,8 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import React, { useState, useEffect, } from 'react';
+import { MapContainer, Map, TileLayer, Marker, Popup } from 'react-leaflet';
+
 import "leaflet/dist/leaflet.css";
-import { Icon } from "leaflet";
-import mapMarker from "/assets/images/marker-icon.png"
+import L from 'leaflet';
+
+import icon from 'leaflet/dist/images/marker-icon.png';
+import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+
+
+let DefaultIcon = L.icon({
+    iconUrl: icon,
+    shadowUrl: iconShadow
+});
+
+L.Marker.prototype.options.icon = DefaultIcon;
 
 function Map( {jobs}) {
     const [markers, setMarkers] = useState([]);
@@ -32,25 +43,7 @@ function Map( {jobs}) {
     useEffect(() => {
         geocodeAddresses(addresses);
     }, []);
-
-    // const customIcon = new Icon({
-    //     iconURL: "/assets/images/marker-icon.png",
-    //     iconSize: [38,38]
-    // });
-    const iconRetinaUrl = '/assets/images/marker-icon-2x.png';
-    const iconUrl = '/assets/images/marker-icon.png';
-    const shadowUrl = '/assets/images/marker-shadow.png';
-    const iconDefault = new Icon({
-        iconRetinaUrl,
-        iconUrl,
-        shadowUrl,
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        tooltipAnchor: [16, -28],
-        shadowSize: [41, 41]
-    });
-
+    
     return (
         <div>
             <MapContainer center={[34.0469, -114.732]} zoom={8}>
@@ -60,7 +53,7 @@ function Map( {jobs}) {
                 />
                 {/* Render markers based on the positions in the markers array */}
                 {markers.map((marker, index) => (
-                    <Marker key={index} position={marker?.position || [0, 0]} icon={mapMarker}>
+                    <Marker key={index} position={marker?.position || [0, 0]} >
                         <Popup>{marker?.address.title || 'Unknown Address'}</Popup>
                     </Marker>
                 ))}
