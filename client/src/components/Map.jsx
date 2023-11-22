@@ -4,8 +4,8 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import "leaflet/dist/leaflet.css";
 import L from 'leaflet';
 
-import icon from 'leaflet/dist/images/marker-icon.png';
-import icon2x from "leaflet/dist/images/marker-icon-2x.png";
+import icon from '/assets/images/layers.png';
+import icon2x from "/assets/images/layers2.png";
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
 function Map({ jobs }) {
