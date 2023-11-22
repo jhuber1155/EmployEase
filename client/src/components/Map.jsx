@@ -39,7 +39,7 @@ function Map( {jobs}) {
     const iconRetinaUrl = '/assets/images/marker-icon-2x.png';
     const iconUrl = '/assets/images/marker-icon.png';
     const shadowUrl = '/assets/images/marker-shadow.png';
-    const iconDefault = icon({
+    const iconDefault = new Icon({
         iconRetinaUrl,
         iconUrl,
         shadowUrl,
@@ -49,7 +49,6 @@ function Map( {jobs}) {
         tooltipAnchor: [16, -28],
         shadowSize: [41, 41]
     });
-        Marker.prototype.options.icon = iconDefault;
 
     return (
         <div>
@@ -60,7 +59,7 @@ function Map( {jobs}) {
                 />
                 {/* Render markers based on the positions in the markers array */}
                 {markers.map((marker, index) => (
-                    <Marker key={index} position={marker?.position || [0, 0]} /*icon={customIcon}*/>
+                    <Marker key={index} position={marker?.position || [0, 0]} icon={iconDefault}>
                         <Popup>{marker?.address.title || 'Unknown Address'}</Popup>
                     </Marker>
                 ))}
