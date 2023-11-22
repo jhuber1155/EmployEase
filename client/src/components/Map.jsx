@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import "leaflet/dist/leaflet.css";
-import { Icon } from "leaflet";
+// import { Icon } from "leaflet";
 
 function Map( {jobs}) {
     const [markers, setMarkers] = useState([]);
@@ -32,10 +32,10 @@ function Map( {jobs}) {
         geocodeAddresses(addresses);
     }, []);
 
-    const customIcon = new Icon({
-        iconURL: "/assets/images/marker-icon.png",
-        iconSize: [38,38]
-    });
+    // const customIcon = new Icon({
+    //     iconURL: "/assets/images/marker-icon.png",
+    //     iconSize: [38,38]
+    // });
 
     return (
         <div>
@@ -46,7 +46,7 @@ function Map( {jobs}) {
                 />
                 {/* Render markers based on the positions in the markers array */}
                 {markers.map((marker, index) => (
-                    <Marker key={index} position={marker?.position || [0, 0]} icon={customIcon}>
+                    <Marker key={index} position={marker?.position || [0, 0]} /*icon={customIcon}*/>
                         <Popup>{marker?.address.title || 'Unknown Address'}</Popup>
                     </Marker>
                 ))}
