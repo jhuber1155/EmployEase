@@ -1,7 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
-function Map( {jobs}) {
+import "leaflet/dist/leaflet.css";
+import L from 'leaflet';
+
+import icon from 'leaflet/dist/images/marker-icon.png';
+import icon2x from "leaflet/dist/images/marker-icon-2x.png";
+import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+
+function Map({ jobs }) {
     const [markers, setMarkers] = useState([]);
     // Function to geocode addresses and update markers
     const geocodeAddresses = async (addresses) => {
@@ -24,11 +31,24 @@ function Map( {jobs}) {
         setMarkers(resolvedMarkers.filter((marker) => marker !== null));
     };
 
-    const addresses = jobs.map(job => ({ location: job.location, title: job.jobTitle}))
+    const addresses = jobs.map(job => ({ location: job.location, title: job.jobTitle }))
     // geocode addresses when added to array 
     useEffect(() => {
         geocodeAddresses(addresses);
     }, []);
+
+    let DefaultIcon = L.icon({
+        iconUrl: icon,
+        iconRetinaUrl: icon2x,
+        shadowUrl: iconShadow,
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        tooltipAnchor: [16, -28],
+        shadowSize: [41, 41],
+    });
+
+    console.log(DefaultIcon)
 
     return (
         <div>
@@ -39,7 +59,7 @@ function Map( {jobs}) {
                 />
                 {/* Render markers based on the positions in the markers array */}
                 {markers.map((marker, index) => (
-                    <Marker key={index} position={marker?.position || [0, 0]}>
+                    <Marker key={index} position={marker?.position || [0, 0]} icon={DefaultIcon} >
                         <Popup>{marker?.address.title || 'Unknown Address'}</Popup>
                     </Marker>
                 ))}
