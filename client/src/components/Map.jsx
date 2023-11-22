@@ -48,6 +48,8 @@ function Map({ jobs }) {
         shadowSize: [41, 41],
     });
 
+    console.log(DefaultIcon);
+
     return (
         <div>
             <MapContainer center={[34.0469, -114.732]} zoom={8}>
