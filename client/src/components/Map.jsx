@@ -33,7 +33,7 @@ function Map( {jobs}) {
     }, []);
 
     const customIcon = new Icon({
-        iconURL: "/marker-icon.png",
+        iconURL: "/assets/images/marker-icon.png",
         iconSize: [38,38]
     });
 
