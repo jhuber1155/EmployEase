@@ -36,9 +36,9 @@ function Map( {jobs}) {
     //     iconURL: "/assets/images/marker-icon.png",
     //     iconSize: [38,38]
     // });
-    const iconRetinaUrl = 'assets/images/marker-icon-2x.png';
-    const iconUrl = 'assets/images/marker-icon.png';
-    const shadowUrl = 'assets/images/marker-shadow.png';
+    const iconRetinaUrl = '/assets/images/marker-icon-2x.png';
+    const iconUrl = '/assets/images/marker-icon.png';
+    const shadowUrl = '/assets/images/marker-shadow.png';
     const iconDefault = icon({
         iconRetinaUrl,
         iconUrl,
