@@ -141,6 +141,7 @@ const JobForm = () => {
             title="Job Description:"
             value={formState.description}
             onChange={handleFormChange}
+            containerClasses='col-span-2'
             placeholder='Enter a Job Description'
             labelClasses={labelStyling}
             inputClasses={inputStyling}
@@ -160,7 +161,6 @@ const JobForm = () => {
             title="Applied On:"
             value={formState.appliedOn}
             onChange={handleFormChange}
-            containerClasses='col-span-2'
             labelClasses={labelStyling}
             inputClasses={inputStyling}
           />
