@@ -18,10 +18,10 @@ const Header = () => {
       <div>
         {Auth.loggedIn() ? (
           <>
-            <button className='bg-green-400 btn btn-lg text-white m-2 rounded-md hover:bg-green-700'>
+            <button className='bg-green-400 btn btn-sm h-[50px] text-white m-2 rounded-md hover:bg-green-700 lg:text-lg'>
               <Link to="/addJob">+ Add New Job</Link>
             </button>
-            <button className="btn btn-lg btn-dark m-2" onClick={logout}>
+            <button className="btn btn-sm rounded-md btn-dark m-2 h-[50px] lg:text-lg" onClick={logout}>
               <div className='flex justify-between'>
                 Logout
                 <IoIosLogOut className='ml-2 my-1' />
